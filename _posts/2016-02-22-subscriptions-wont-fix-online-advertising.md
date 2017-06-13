@@ -3,6 +3,7 @@ title:  "Subscriptions won't fix online advertising"
 date:   2016-02-22 17:14:30 -0000
 tags: advertising
 ---
+
 Everyone hates ads, but content can't survive without revenue. AdBlock is increasingly cutting into profit margins of websites that rely on advertising, and the problem doesn't look to be going away. These websites are desperately looking to innovate in how their bring in revenue.
 
 ## Individual site subscriptions
@@ -36,3 +37,7 @@ I don't think this is impossible, but we need some big brave pioneers. If some b
 So please, news sites, I'm begging you: think about trying acceptable ads? The initial revenue cut will hurt, but in the long term, I think acceptable ads policies will be better for everyone.
 
 [[discuss on Hacker News](https://news.ycombinator.com/item?id=11152080)]
+
+---
+
+*Originally published [on Medium](https://medium.com/@oxguy3/subscriptions-won-t-fix-online-advertising-1fc732248a16)*
