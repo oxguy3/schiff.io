@@ -19,13 +19,16 @@ description: >
   Software developer. Soccer and anime meganerd. Cincinnati native. He/him.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: oxguy3
-github_username:  oxguy3
+twitter_username:  oxguy3
+github_username:   oxguy3
+linkedin_username: haydenschiff
 google_analytics: UA-53424623-1
 
 # build settings
 markdown: kramdown
 theme: minima
+kramdown:
+    smart_quotes: ["apos", "apos", "quot", "quot"]
 gems:
   - jekyll-feed
 exclude:
