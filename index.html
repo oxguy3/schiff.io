@@ -1,0 +1,116 @@
+---
+layout: default
+---
+<style>
+.thingido {
+    width: auto;
+    padding: 40px 30px;
+    color: white;
+    background-color: #444444;
+    background-position: center center;
+    background-size: cover;
+}
+/**
+ * These images should be resized to width of 1360px, then blurred and darkened
+ * using this ImageMagick command:
+ *     magick IN.jpg -gaussian-blur 0x8 -fill black -colorize 25% OUT.jpg
+ */
+#thingido-code {
+    background-position-y: 50%;
+    background-image: url({{ site.url }}/assets/homepage/thingido-code.jpg);
+}
+#thingido-photography {
+   background-position-y: 10%;
+   background-image: url({{ site.url }}/assets/homepage/thingido-photography.jpg);
+}
+#thingido-work {
+    background-position-y: 80%;
+    background-image: url({{ site.url }}/assets/homepage/thingido-work.jpg);
+}
+#thingido-nerd {
+    background-position-y: 20%;
+    background-image: url({{ site.url }}/assets/homepage/thingido-nerd.jpg);
+}
+
+.thingido:nth-child(2n) {
+    text-align: right;
+    background-color: #333333;
+}
+.thingido h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 5px;
+}
+.thingido p {
+    /*display: none;*/
+    /*font-style: italic;*/
+}
+.thingido a {
+    color: white;
+    font-weight: 600;
+}
+
+.much-smaller {
+    font-size: 70%;
+}
+
+</style>
+
+<h1>
+    Hey there.
+    <span class="much-smaller">I'm Hayden. I'm doing all sorts of cool stuff...</span>
+</h1>
+
+<div id="thingsido">
+
+    <section class="thingido" id="thingido-code">
+        <h2>I code.</h2>
+        <p>
+            I do <a href="https://github.com/oxguy3">a lot of open-source programming</a>,
+            and I'm somewhat active
+            <a href="https://stackoverflow.com/users/992504/hayden-schiff?tab=profile">on Stack Overflow</a>.
+        </p>
+    </section>
+
+    <section class="thingido" id="thingido-photography">
+        <h2>I take pictures.</h2>
+        <p>
+            I have a spiffy camera, and I sorta know how to use it. I put all my photos up
+            <a href="https://www.flickr.com/photos/oxguy3/albums">on Flickr</a>.
+        </p>
+    </section>
+
+    <section class="thingido" id="thingido-writing">
+        <h2>I write.</h2>
+        <p>
+            I never shut up <a href="https://twitter.com/oxguy3">on Twitter</a>, and
+            occasionally I write even longer stuff on <a href="blog">my blog</a>.
+        </p>
+    </section>
+
+    <section class="thingido" id="thingido-work">
+        <h2>I work.</h2>
+        <p>
+            I'm a developer at a neato startup called <a href="https://www.datarole.com">DataRole</a>,
+            and you can also find me <a href="https://www.linkedin.com/in/haydenschiff/">on LinkedIn</a>.
+        </p>
+    </section>
+
+    <section class="thingido" id="thingido-nerd">
+        <h2>I nerd out.</h2>
+        <p>
+            I love <a href="https://myanimelist.net/profile/oxguy3">watching anime</a>
+            and <a href="https://steamcommunity.com/id/oxguy3">playing vidya games</a>.
+        </p>
+    </section>
+
+</div>
+
+<!--
+* [{% icon fa-fw fa-id-card %} About me](/about)
+* [{% icon fa-fw fa-commenting %} Blog](/blog)
+* [{% icon fa-fw fa-twitter %} Twitter](https://twitter.com/{{ site.twitter_username }})
+* [{% icon fa-fw fa-github %} GitHub](https://github.com/{{ site.github_username }})
+* [{% icon fa-fw fa-stack-overflow %} Stack Overflow](https://stackoverflow.com/users/992504/hayden-schiff)
+* [{% icon fa-fw fa-linkedin %} LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}/)
+-->

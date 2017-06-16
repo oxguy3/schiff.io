@@ -1,10 +1,18 @@
 ---
 ---
 
+body {
+    box-sizing: border-box;
+}
+
 @import "minima";
 @import "fontawesome/font-awesome";
 
 .social-media-list i.fa {
     padding-right: 5px;
     color: #828282;
+}
+
+p.lead {
+    font-size: 20px;
 }
