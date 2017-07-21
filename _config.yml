@@ -32,6 +32,7 @@ kramdown:
     smart_quotes: ["apos", "apos", "quot", "quot"]
 gems:
   - jekyll-feed
+  - jekyll-redirect-from
 exclude:
   - Gemfile
   - Gemfile.lock
