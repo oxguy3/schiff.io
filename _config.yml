@@ -49,6 +49,7 @@ tag_feed_dir: tag
 # navigation bar
 header_pages:
   - about.md
+  - projects/index.md
   - blog.md
 
 # default page layout
