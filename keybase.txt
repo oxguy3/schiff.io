@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/oxguy3
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://schiff.io
+  * I am oxguy3 (https://keybase.io/oxguy3) on keybase.
+  * I have a public key with fingerprint 754F FF90 7E28 2085 32E5  BE86 D902 728B 9E15 BA71
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01013cea685f6beca5aef8f5ebf4dedf54ce8bcbcfb4c8b516100c081df6a89c42770a",
+            "fingerprint": "754fff907e28208532e5be86d902728b9e15ba71",
+            "host": "keybase.io",
+            "key_id": "d902728b9e15ba71",
+            "kid": "01013cea685f6beca5aef8f5ebf4dedf54ce8bcbcfb4c8b516100c081df6a89c42770a",
+            "uid": "5e6e36fa4a7c736330b336d928e73d19",
+            "username": "oxguy3"
+        },
+        "service": {
+            "hostname": "schiff.io",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1451373758,
+    "expire_in": 157680000,
+    "prev": "1060d26e8a5377483ad46c5683780962015c578e4a985cddc461d50dcf183cf7",
+    "seqno": 7,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.49
+Comment: https://keybase.io/crypto
+
+yMIjAnicrVJbSBRRGF7zkhqpUb2kRM1WJJmeMzNnztlF6imR6iHtxnbbZs45szup
+O9vOrrmISpEUEW0FlZciyKxIBEuCjOjmPhibD0GoSQ8hpgWRENWDBDVj9tZj5+Vw
+/vN93/99P39ycborN+3rZ1+tVTvuS0s9vxBz7TkhP2kUNJPFBW+jUMPnLl7LuBX1
+1xhM8AoAAihRrioE6YrGqYpUrhMdcU2XGWc6kiknGtWorsmUaAgqEAAKCGS6ohIP
+lUWMgSqUCLoRCvBIOGKEorYsRrKu6x6AuUhEQJAkcqRxojAPELFINA+HSFMxtIlB
+03IYtjlNtXipYdo1++Gfs/cP/H/2HZuTQ1zhkqKrsooplhRJApok2W5FwrHEoMcB
+WjwSUuu4jTYbArG4JDSVCHat3qDcGauTY/7fokFD1/9ECUfMqEnNWrscjEbDXocV
+jYcd2DGu+ecF/JoRYvYEbUI9j1iGGRK80EbSqOEoQhlBCUsYkRKBN4SNCPcbDgJh
+hQD7OG14vS0JgQKYqHCiIgljmUgqkxWKFCJhAjyKCCCiCBMuqx6CKGNUViBDgFEd
+EonqWHAiHQ2ZghfbNtWAE8YIhNRoLMKFphfPDmS40nJdWZkLnM1y5eYU/N23ZxUL
+f1VdrrxWvCi1ZPtDdLojy8xedufKhjOdu5hr7c+G+M2pTxOdeY/uwKr71dN1RWPJ
+4eMzGfQ+ulT0cfei/uIW3+Wm/rrMH92Bs4Wv17vF7ul7pR+6WxNXv29YIx/u/xh6
+25c97INksO9WG5tOHjc2Viaq87uad1r+L+663vc3Xp5LuFHhvrIVg9/etQ4Uj5sn
+h/PLR2HXJOqdMgtOFewdWVe2tO3NkcnzEXFcfHo9NTt6e8y9ZWLThZWT5t3H+EF7
+uOJpWRC7raKW3rzxeP7dQ9t6ap4MbU1ar6ZW7+A5ywsXHPy5tflRsiN1cXZGyNk8
+VJ4cWRVMz+y+sr+nPdECBn4Dewg/WA==
+=sqH9
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/oxguy3
+
+==================================================================
