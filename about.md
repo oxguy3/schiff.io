@@ -3,18 +3,6 @@ title: About
 permalink: /about
 ---
 
-<style>
-#other-identities {
-    padding-left: 0;
-    margin-left: 1em;
-    list-style-type: none;
-}
-#other-identities i.social-media-fa {
-    width: 1.28571em;
-    text-align: center;
-}
-</style>
-
 Hey there, I'm Hayden Schiff. I'm a twenty-something software developer from
 Cincinnati, Ohio. I'm really into pro soccer, anime, video games, and other
 time-wasting crap.
