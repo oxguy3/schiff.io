@@ -822,13 +822,12 @@ example:
 ```
 
 There also appear to be a few other API endpoints in the app, related to
-signing up for a new accounts, claiming a bundle, finding unclaimed orders,
+signing up for a new account, claiming a bundle, finding unclaimed orders,
 and checking for app updates, but none of those seemed interesting enough to
 investigate. Feel free to copy my methods and figure them out yourself.
 
-I've written brief documentation for all the API endpoints over
-[here]({{ site.url }}/projects/humble-bundle-api), including a collection for
-Postman if you just want to test it out.
+[I've written documentation for all the API endpoints over here]({{ site.url }}/projects/humble-bundle-api),
+including a collection for Postman if you just want to test it out.
 
 Ultimately, I want to use this API to make some sort of cool automated
 download tool, but that'll have to wait for another day. Let me know if you
