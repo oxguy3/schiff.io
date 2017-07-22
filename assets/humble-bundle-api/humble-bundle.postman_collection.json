@@ -1,0 +1,172 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Humble Bundle",
+		"_postman_id": "4279719d-083a-5656-6524-c00e77975f62",
+		"description": "https://schiff.io/projects/humble-bundle-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Successful login\"] = jsonData.success === true && typeof jsonData.errors === 'undefined';",
+							"",
+							"tests[\"CAPTCHA was valid\"] = typeof jsonData.errors === 'undefined' || typeof jsonData.errors.captcha === 'undefined';",
+							"tests[\"SMS not required\"] = typeof jsonData.errors === 'undefined' || typeof jsonData.errors.sms === 'undefined';",
+							"tests[\"Email and password were correct\"] = typeof jsonData.errors === 'undefined' || typeof jsonData.errors.unamepwd === 'undefined';",
+							"tests[\"No API network error\"] = typeof jsonData.errors === 'undefined' || typeof jsonData.errors.network === 'undefined';"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hr-humblebundle.appspot.com/processlogin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-By",
+						"value": "hb_android_app",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ajax",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"description": "Email address",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"description": "password",
+							"type": "text"
+						},
+						{
+							"key": "recaptcha_challenge_field",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "recaptcha_response_field",
+							"value": "{{recaptcha_response}}",
+							"description": "reCAPTCHA response code",
+							"type": "text"
+						},
+						{
+							"key": "authy-token",
+							"value": "{{authy_token}}",
+							"description": "2-Factor Authentication (2FA) code (from Authy or SMS)",
+							"type": "text"
+						},
+						{
+							"key": "send_sms",
+							"value": "",
+							"description": "Set to 'true' to have a 2FA code texted to you",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Prior to authentication, you must complete a captcha. Go to https://hr-humblebundle.appspot.com/user/captcha, then paste the following code in the JS console:\n```\nwindow.Android = {\n    setCaptchaResponse: function(challenge, response) {\n        console.log(response);\n    }\n}\n```\nNow complete the captcha. When you click Submit, a big long nonsense string will appear in the JS console. Copy this and add it to your Postman environment as a variable named 'recaptcha_response'.\n\nIf you use two-factor authentication, you will also need to set your 'authy\\_token' environment variable to the current token. If you prefer SMS to the authenticator app, leave the 'authy\\_token' blank and change the send\\_sms value in the request body to \"true\", then submit the request. You'll receive your token via SMS, then you can fill it in as 'authy\\_token' and redo the request to complete the login."
+			},
+			"response": []
+		},
+		{
+			"name": "get orders list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hr-humblebundle.appspot.com/api/v1/user/order",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-By",
+						"value": "hb_android_app",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get order details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hr-humblebundle.appspot.com/api/v1/order/PayEBBpTbbEXFEMK",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-By",
+						"value": "hb_android_app",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "service_check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hr-humblebundle.appspot.com/androidapp/v2/service_check",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Checks what Android-relevant bundles are currently ongoing."
+			},
+			"response": []
+		}
+	]
+}
