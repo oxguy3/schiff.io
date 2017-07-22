@@ -508,7 +508,10 @@ After it builds the name-value pair list, it passes that ArrayList as and the
 'com/humblebundle/library/a/a' (this is on line 68). Then it takes the
 HttpResponse returned by the 'b' method, and passes it to another method in the
 same class called 'a' to get back a string. It then creates a JSONObject from
-that string. We can just sort of skim
+that string. The rest of the code doesn't seem too important, but skimming it,
+we can see that it handles the cookies and then does something with a Context
+(which probably means something is changing in the app's UI, like going to a
+new View or something).
 
 We could dig into the com/humblebundle/library/a/a.smali file and figure out
 what those methods do, but it's also not hard to just guess. We passed in
