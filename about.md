@@ -1,7 +1,10 @@
 ---
 title: About
 permalink: /about
+custom_css: about
 ---
+
+<a href="{{ site.url }}/assets/face.jpg"><img id="myface" src="{{ site.url }}/assets/face250.jpg" /></a>
 
 Hey there, I'm Hayden Schiff. I'm a twenty-something software developer from
 Cincinnati, Ohio. I'm really into pro soccer, anime, video games, and other

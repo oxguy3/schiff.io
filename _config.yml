@@ -19,11 +19,18 @@ email: haydenschiff@gmail.com
 description: >
   Software developer. Soccer and anime meganerd. Cincinnati native. He/him.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.schiff.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:  oxguy3
 github_username:   oxguy3
 linkedin_username: haydenschiff
 google_analytics: UA-53424623-1
+
+# seo
+twitter:
+    username: oxguy3
+logo: /assets/face500.jpg
+google_site_verification: em_CCqIepc-mKuqUKymAjcPxp_48PsmDTLc1hbORMaw
+lang: en_US
 
 # build settings
 markdown: kramdown
@@ -34,6 +41,7 @@ highlighter: pygments
 gems:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-seo-tag
 exclude:
   - Gemfile
   - Gemfile.lock

@@ -1,0 +1,16 @@
+#other-identities {
+    padding-left: 0;
+    margin-left: 1em;
+    list-style-type: none;
+}
+#other-identities i.social-media-fa {
+    width: 1.28571em;
+    text-align: center;
+}
+
+#myface {
+    border-radius: 50%;
+    height: 125px;
+    width: 125px;
+    float:right;
+}
