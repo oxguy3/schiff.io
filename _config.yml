@@ -39,6 +39,7 @@ exclude:
   - Gemfile.lock
 sass:
   style: compressed
+permalink: pretty
 
 
 # tagging
