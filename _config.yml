@@ -39,7 +39,7 @@ exclude:
   - Gemfile.lock
 sass:
   style: compressed
-permalink: pretty
+permalink: /:categories/:year/:month/:day/:title
 
 
 # tagging

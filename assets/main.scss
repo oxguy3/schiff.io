@@ -68,6 +68,11 @@ $on-laptop:        800px !default;
     border: 1px solid $grey-color-light;
 }
 
+.tags a {
+    color: inherit;
+    padding: 0 2px;
+}
+
 i.social-media-fa {
     padding-right: 5px;
 }
