@@ -572,10 +572,10 @@ $('input[type=submit]').click(function(e){
 After the user clicks the Submit button, it looks for an object called `Android`
 and tries to pass the reCAPTCHA challenge and response to a `setCaptchaResponse`
 method. However, the Android object does not exist on our machine, so this code
-ends up doing essentially. It's likely that, when this web page is rendered
-inside the Humble Bundle app, it injects an object called `Android` into the
-page -- since we're using our web browser instead of the app, the object never
-gets created.
+ends up doing essentially nothing. It's likely that, when this web page is
+rendered inside the Humble Bundle app, it injects an object called `Android`
+into the page -- since we're using our web browser instead of the app, the
+object never gets created.
 
 _(As a matter of fact, you can find the code that does this in
 CaptchaActivity.smali. The onCreate method in that class makes a WebView, then
