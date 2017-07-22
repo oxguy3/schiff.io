@@ -551,8 +551,9 @@ actually a web page that shows you a captcha:
 [![Humble Bundle captcha][screenshot-captcha-page]][screenshot-captcha-page]
 
 If you load the page yourself, solve the captcha, and click the Submit button,
-you'll find that nothing actually happens. Looking in the source code of the
-web page, we find this bit of JavaScript:
+you'll find that nothing actually happens for some reason. Looking in the source
+code of the web page, we find this bit of JavaScript that seems to control what
+happens when that Submit button is clicked:
 
 {% highlight javascript %}
 var captcha = new Recaptcha2('captcha-holder');
@@ -570,18 +571,20 @@ $('input[type=submit]').click(function(e){
 
 After the user clicks the Submit button, it looks for an object called `Android`
 and tries to pass the reCAPTCHA challenge and response to a `setCaptchaResponse`
-method. What's probably happening is that, when the Humble Bundle app shows this
-web page to the user, it injects some JavaScript into the page to handle this
-code.
+method. However, the Android object does not exist on our machine, so this code
+ends up doing essentially. It's likely that, when this web page is rendered
+inside the Humble Bundle app, it injects an object called `Android` into the
+page -- since we're using our web browser instead of the app, the object never
+gets created.
 
-_(As a matter of fact, you can find the code that does just this in
+_(As a matter of fact, you can find the code that does this in
 CaptchaActivity.smali. The onCreate method in that class makes a WebView, then
 sets an instance of the class 'CaptchaActivity$a' as the JavaScript interface
-for that WebView. The setCaptchaResponse method can be found in
+for that WebView. Thus, the real setCaptchaResponse method can be found in
 CaptchaActivity$a.smali)_
 
 The easiest way to solve this is by creating our own version of the
-Android.setCaptchaResponse method. I opened the JavaScript console on the
+`Android.setCaptchaResponse` method. I opened the JavaScript console on the
 web page and typed in this:
 
 {% highlight javascript %}
@@ -592,7 +595,7 @@ window.Android = {
 }
 {% endhighlight %}
 
-This simply spits out the reCAPTCHA response in the console (I didn't bother
+This simply prints out the reCAPTCHA response in the console (I didn't bother
 printing the challenge because, as you can see in the original JavaScript,
 it's always an empty string). Now, if we solve the captcha and click Submit,
 we see this in the console:
@@ -629,10 +632,10 @@ That's no good, where did we go wrong?
 Well, I'm gonna save you the debugging and cut to the chase. Remember back in
 the "[Make a login request](#make-a-login-request)" section, when I skipped over
 reading the 'com/humblebundle/library/a/a.smali' file, and just took an educated
-guess about what it does? Well, it turns out that it adds a header
+guess about what it does? Well, it turns out that 'a/a.smali' adds a header
 `X-Requested-By: hb_android_app` to all POST requests it sends.
 
-Once we add that header, the server will return this:
+Once we add that header to our request, the server will return this:
 
 ```
 {"goto": "/home", "success": true}
