@@ -27,6 +27,7 @@ So, I'll be bringing my normal work laptop (MacBook Pro), my normal cell phone (
     * Due to [BroadPwn](http://www.techrepublic.com/article/android-security-bulletin-july-2017-what-you-need-to-know/), I'm not gonna be using wi-fi at all on my Android devices (neither of them is up to the July update yet).
 * In the con, only use direct-to-internet wi-fi. In the hotel, only use wired.
 * Always use VPN, and turn it on _before_ connecting to wi-fi.
+* Leave laptop/tablet in the hotel safe unless I have a specific reason to bring them out.
 * Do not let any of my devices leave my vision.
 * Don't trust any device anyone gives me.
     * The last two are obvious, but I'm particularly keen on mentioning them now that [PoisonTap](https://samy.pl/poisontap/) is a thing.
