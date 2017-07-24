@@ -23,9 +23,11 @@ url: "https://www.schiff.io" # the base hostname & protocol for your site, e.g. 
 twitter_username:  oxguy3
 github_username:   oxguy3
 linkedin_username: haydenschiff
-google_analytics: UA-53424623-1
+disqus:
+    shortname: hayden-schiff
 
 # seo
+google_analytics: UA-53424623-1
 twitter:
     username: oxguy3
 logo: /assets/face500.jpg
