@@ -29,8 +29,8 @@ So, I'll be bringing my normal work laptop (MacBook Pro), my normal cell phone (
 * Always use VPN, and turn it on _before_ connecting to wi-fi.
 * Do not let any of my devices leave my vision.
 * Don't trust any device anyone gives me.
-    * The last two are obvious, but I'm particularly keen on mentioning now that [PoisonTap](https://samy.pl/poisontap/) is a thing.
-* Use [USB condom](http://syncstop.com/) if using public charging station.
+    * The last two are obvious, but I'm particularly keen on mentioning them now that [PoisonTap](https://samy.pl/poisontap/) is a thing.
+* Use [USB condom](http://syncstop.com/) if using a public charging station.
 * Only communicate using [Signal](https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms) if possible.
 
 So that's my list. It might not be perfect, but I think it should be sufficient for me. What do you think? Am I too carefree, or even too paranoid? Did I miss anything crucial?
