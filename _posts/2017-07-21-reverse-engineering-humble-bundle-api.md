@@ -30,7 +30,7 @@ just have to figure out how it works. So how can we do that?
 *Heads up: This post is going to go fairly in-depth on the technical process of
 reverse-engineering an Android app. If you don't care about any of that, and
 just want documentation for Humble Bundle's API,
-[click here]({{ site.url }}/pages/humble-bundle-api).*
+[click here]({{ site.url }}/projects/humble-bundle-api).*
 
 ## Intercepting the app's communications
 
@@ -826,7 +826,7 @@ signing up for a new account, claiming a bundle, finding unclaimed orders,
 and checking for app updates, but none of those seemed interesting enough to
 investigate. Feel free to copy my methods and figure them out yourself.
 
-[I've written documentation for all the API endpoints over here]({{ site.url }}/pages/humble-bundle-api),
+[I've written documentation for all the API endpoints over here]({{ site.url }}/projects/humble-bundle-api),
 including a collection for Postman if you just want to test it out.
 
 Ultimately, I want to use this API to make some sort of cool automated
