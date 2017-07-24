@@ -22,8 +22,10 @@ Besides my big projects, I have many simple scripts, tools, and pages that were 
 * **[Block Dude](https://oxguy3.github.io/blockdude/)**: A browser port of the classic TI calculator game, made with [PuzzleScript](http://www.puzzlescript.net/)
 * **[Dark Horse Downloader](https://greasyfork.org/en/scripts/26635-dark-horse-downloader)**: A browser script for downloading DRM-free copies of your [Dark Horse](http://www.darkhorse.com/) digital comics ([source](https://gist.github.com/oxguy3/038bad5721064537f542905ae46d510f))
 * **[deploy.php](https://gist.github.com/oxguy3/70ea582d951d4b0f78edec282a2bebf9)**: A script for automatically deploying a website on cPanel whenever new code is pushed to GitHub
+* **[dotfiles](https://github.com/oxguy3/dotfiles)**: Misc local scripts, bash settings, etc.
 * **[easypwgen](https://oxguy3.github.io/easypwgen/)**: A simple word-based password generator
 * **[filters.txt](https://gist.github.com/oxguy3/dda7958f7da766eed9fa)**: my AdBlock filters for removing annoyances from the web
+* **[flags.ox3.in](https://github.com/oxguy3/flags)**: A repository of country and state flags in SVG format
 * **[floor.lua](https://github.com/oxguy3/computercraftprograms/blob/master/floor.lua)**: A ComputerCraft turtle script for creating a rectangular floor
 * **[Humble Bundle API docs]({{ site.url }}/projects/humble-bundle-api)**: Reverse-engineered documentation of [Humble Bundle](https://humblebundle.com)'s API
 * **[miscellaneous_cleanup.css](https://gist.github.com/oxguy3/3338da5c38348c2a6e72)**: A stylesheet for fixing little frustrations on various websites

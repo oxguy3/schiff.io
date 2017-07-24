@@ -4,71 +4,31 @@ date:   2017-07-21 14:40:29 -0400
 tags: reverse-engineering humble-bundle android
 ---
 
-If you've been living under a rock for the past few years, you might not know
-there's this cool site called [Humble Bundle](https://www.humblebundle.com/)
-that sells games and ebooks in very affordable pay-what-you-want bundles. They
-donate some of the profits to charity, and they have some really cool offerings
--- definitely worth checking out if you've never seen it before.
+If you've been living under a rock for the past few years, you might not know there's this cool site called [Humble Bundle](https://www.humblebundle.com/) that sells games and ebooks in very affordable pay-what-you-want bundles. They donate some of the profits to charity, and they have some really cool offerings -- definitely worth checking out if you've never seen it before.
 
-I've been a patron of Humble Bundle for quite a few years and have built a
-fairly sizable collection of digital goodies. I'd like to be able to download
-these in bulk in the formats of my choice. Unfortunately, Humble Bundle doesn't
-make this easy -- they expect you to manually click "Download" for each and
-every item in your library.
+I've been a patron of Humble Bundle for quite a few years and have built a fairly sizable collection of digital goodies. I'd like to be able to download these in bulk in the formats of my choice. Unfortunately, Humble Bundle doesn't make this easy -- they expect you to manually click "Download" for each and every item in your library.
 
-This is no good -- I want automation! So how can I get access to my library,
-and all the downloads within it, in a programmatic way? I could scrape the
-website and dig the links out that way, but I'd really rather not -- scraping
-is difficult, slow, and liable to stop working whenever they update their
-site design. What I want is an API.
+This is no good -- I want automation! So how can I get access to my library, and all the downloads within it, in a programmatic way? I could scrape the website and dig the links out that way, but I'd really rather not -- scraping is difficult, slow, and liable to stop working whenever they update their site design. What I want is an API.
 
-Humble Bundle doesn't offer an official public API, but they do have
-[an Android app](https://www.humblebundle.com/app). Surely the app is talking
-to Humble Bundle's servers using some sort of private, undocumented API -- I
-just have to figure out how it works. So how can we do that?
+Humble Bundle doesn't offer an official public API, but they do have [an Android app](https://www.humblebundle.com/app). Surely the app is talking to Humble Bundle's servers using some sort of private, undocumented API -- I just have to figure out how it works. So how can we do that?
 
-*Heads up: This post is going to go fairly in-depth on the technical process of
-reverse-engineering an Android app. If you don't care about any of that, and
-just want documentation for Humble Bundle's API,
-[click here]({{ site.url }}/projects/humble-bundle-api).*
+*Heads up: This post is going to go fairly in-depth on the technical process of reverse-engineering an Android app. If you don't care about any of that, and just want documentation for Humble Bundle's API, [click here]({{ site.url }}/projects/humble-bundle-api).*
 
 ## Intercepting the app's communications
 
-My initial thinking was that I'd figure out how the API works by intercepting
-the app's network traffic. If I listened from in between the app and Humble
-Bundle's servers, I could see how the app was making requests, and how the
-server was answering those requests. This is a tried-and-true method I've used
-on many web apps and desktop apps.
+My initial thinking was that I'd figure out how the API works by intercepting the app's network traffic. If I listened from in between the app and Humble Bundle's servers, I could see how the app was making requests, and how the server was answering those requests. This is a tried-and-true method I've used on many web apps and desktop apps.
 
-Unfortunately, it's a bit trickier to accomplish with Android. My phone isn't
-rooted, and I don't have an Android emulator installed on my laptop (and I'd
-rather not get one -- my hard drive is very small and low on space). The only
-way I can intercept the app's traffic is by adding some sketchy third-party app
-on my phone that emulates a VPN and intercepts the traffic that way. The app I
-tried for doing this didn't seem to work on first test, and frankly, I felt
-uneasy about trusting some random app with so much power on my phone, so I
-deleted it and went back to the drawing board.
+Unfortunately, it's a bit trickier to accomplish with Android. My phone isn't rooted, and I don't have an Android emulator installed on my laptop (and I'd rather not get one -- my hard drive is very small and low on space). The only way I can intercept the app's traffic is by adding some sketchy third-party app on my phone that emulates a VPN and intercepts the traffic that way. The app I tried for doing this didn't seem to work on first test, and frankly, I felt uneasy about trusting some random app with so much power on my phone, so I deleted it and went back to the drawing board.
 
 ## Decompiling the app
 
-Well, if there's no easy way to spy on the app as it's running, what if I just
-took it apart and figured out how it worked from the inside? This method is not
-the easiest, but for an app as simple as Humble Bundle's, it just might be
-feasible.
+Well, if there's no easy way to spy on the app as it's running, what if I just took it apart and figured out how it worked from the inside? This method is not the easiest, but for an app as simple as Humble Bundle's, it just might be feasible.
 
-First things first, I need a copy of the app; that is, the APK file. Normally,
-for an app on the Google Play Store, I'd have to use a site like
-[this one](https://apps.evozi.com/apk-downloader/) to pull down the APK file.
-However, the Humble Bundle app isn't actually on the Play Store -- you just
-download it as an APK [right from their site](https://www.humblebundle.com/app).
+First things first, I need a copy of the app; that is, the APK file. Normally, for an app on the Google Play Store, I'd have to use a site like [this one](https://apps.evozi.com/apk-downloader/) to pull down the APK file. However, the Humble Bundle app isn't actually on the Play Store -- you just download it as an APK [right from their site](https://www.humblebundle.com/app).
 
-Now we need to take the APK file apart. This used to be a bit of a laborious,
-multi-part process, but nowadays it's quite easy using a utility called
-[apktool](https://ibotpeaches.github.io/Apktool/). I just had to install apktool
-and run `apktool d HumbleBundle-2.2.2.apk`, and it does all the heavy lifting.
+Now we need to take the APK file apart. This used to be a bit of a laborious, multi-part process, but nowadays it's quite easy using a utility called [apktool](https://ibotpeaches.github.io/Apktool/). I just had to install apktool and run `apktool d HumbleBundle-2.2.2.apk`, and it does all the heavy lifting.
 
-When apktool completed running, I ended up with a directory that looked like
-this:
+When apktool completed running, I ended up with a directory that looked like this:
 
 ```
 HumbleBundle-2.2.2/
@@ -80,49 +40,23 @@ HumbleBundle-2.2.2/
     smali/
 ```
 
-There's a lot of interesting stuff here -- AndroidManifest.xml tells you about
-the app's permissions and so forth, res/ contains the images used by the app,
-etc -- but I really want is the app's executable source code. That's in the
-smali/ folder.
+There's a lot of interesting stuff here -- AndroidManifest.xml tells you about the app's permissions and so forth, res/ contains the images used by the app, etc -- but I really want is the app's executable source code. That's in the smali/ folder.
 
 ## What is Smali?
 
-Inside the smali/ directory (or, more precisely, inside the directory
-smali/com/humblebundle/library/) is all the code for this app, written in a
-format called [Smali](https://github.com/JesusFreke/smali). Odds are, you've
-probably never heard of Smali, and you might be thinking "I thought Android apps
-were written in Java."
+Inside the smali/ directory (or, more precisely, inside the directory smali/com/humblebundle/library/) is all the code for this app, written in a format called [Smali](https://github.com/JesusFreke/smali). Odds are, you've probably never heard of Smali, and you might be thinking "I thought Android apps were written in Java."
 
-Well, you'd be right, they are (usually) written in Java! However, APK files
-don't get published with the original source code -- most developers would
-probably object to their source code being made so easily readable.
+Well, you'd be right, they are (usually) written in Java! However, APK files don't get published with the original source code -- most developers would probably object to their source code being made so easily readable.
 
-Instead, Android apps ship their code in
-[Dalvik Executable format](https://source.android.com/devices/tech/dalvik/dex-format),
-commonly known as .dex format. This is a type of very low-level code that is not
-meant to be written or read by a human, but instead is generated when a human
-compiles code that they wrote in a higher-level language (in this case, probably
-Java). This code contains the raw instructions that will be directly executed by
-the Java Virtual Machine (JVM).
+Instead, Android apps ship their code in [Dalvik Executable format](https://source.android.com/devices/tech/dalvik/dex-format), commonly known as .dex format. This is a type of very low-level code that is not meant to be written or read by a human, but instead is generated when a human compiles code that they wrote in a higher-level language (in this case, probably Java). This code contains the raw instructions that will be directly executed by the Java Virtual Machine (JVM).
 
-I don't want to get too far into the weeds here, so if you want to learn more
-about the JVM, check out
-[this article](http://www.makeuseof.com/tag/java-virtual-machine-work-makeuseof-explains/).
-The important thing to know is that .dex is a very low-level language format
-not intended to be read by humans. In fact, .dex is pretty much impossible for
-humans to read -- it's a binary format that looks like pure gibberish if you
-tried to read it directly.
+I don't want to get too far into the weeds here, so if you want to learn more about the JVM, check out [this article](http://www.makeuseof.com/tag/java-virtual-machine-work-makeuseof-explains/). The important thing to know is that .dex is a very low-level language format not intended to be read by humans. In fact, .dex is pretty much impossible for humans to read -- it's a binary format that looks like pure gibberish if you tried to read it directly.
 
-Fortunately, apktool has done us a great favor and disassembled the .dex
-bytecode into [Smali](https://github.com/JesusFreke/smali), a format that
-represents the .dex code in a text format. It's still a very obtuse and
-unfriendly language, but at least we can read it in a text editor.
+Fortunately, apktool has done us a great favor and disassembled the .dex bytecode into [Smali](https://github.com/JesusFreke/smali), a format that represents the .dex code in a text format. It's still a very obtuse and unfriendly language, but at least we can read it in a text editor.
 
 ## Reading Smali code
 
-It's hard to talk about Smali code without actually seeing it, so let's show
-off some code samples. Here's the classic HelloWorld application, in both Java
-and Smali formats:
+It's hard to talk about Smali code without actually seeing it, so let's show off some code samples. Here's the classic HelloWorld application, in both Java and Smali formats:
 
 {% highlight java %}
 public class HelloWorld {
@@ -150,15 +84,9 @@ public class HelloWorld {
 .end method
 {% endhighlight %}
 
-Immediately you'll notice that Smali is a much more verbose format. When we say
-that machine code is "low-level", what we mean is that the language is not
-going to do any of the work for you. You can't just declare a variable and have
-it magically pop into existence. Instead, you have to manually define the
-[register](https://en.wikipedia.org/wiki/Processor_register) that your data
-will be stored in, and move data between registers, and so forth.
+Immediately you'll notice that Smali is a much more verbose format. When we say that machine code is "low-level", what we mean is that the language is not going to do any of the work for you. You can't just declare a variable and have it magically pop into existence. Instead, you have to manually define the [register](https://en.wikipedia.org/wiki/Processor_register) that your data will be stored in, and move data between registers, and so forth.
 
-Here's the Smali version again, but I've added comments to explain each line of
-code:
+Here's the Smali version again, but I've added comments to explain each line of code:
 
 {% highlight smali %}
 # declare a class called HelloWorld ('L' indicates a class name)
@@ -188,18 +116,11 @@ code:
 .end method
 {% endhighlight %}
 
-I'm not going to go super in-depth on how machine code works, but hopefully you
-can see the basics of what's happening with the comments I've added. You can
-read more about Smali syntax at
-[its GitHub page](https://github.com/JesusFreke/smali) (in particular, I
-definitely recommend checking out the useful links in the README and the files
-in the 'examples' directory).
+I'm not going to go super in-depth on how machine code works, but hopefully you can see the basics of what's happening with the comments I've added. You can read more about Smali syntax at [its GitHub page](https://github.com/JesusFreke/smali) (in particular, I definitely recommend checking out the useful links in the README and the files in the 'examples' directory).
 
 ## Finding the code we want
 
-Now that we have a basic understanding of Smali, we can start making sense of
-the Humble Bundle app code. Here's a listing of all the app's code in the Smali
-directory:
+Now that we have a basic understanding of Smali, we can start making sense of the Humble Bundle app code. Here's a listing of all the app's code in the Smali directory:
 
 ```
 a/
@@ -301,30 +222,17 @@ SettingsActivity$8.smali
 SyncService.smali
 ```
 
-That's a lot of files to go through! What's more, many of them have meaningless
-single-letter names that tell us nothing about what they do. In fact, poking
-around inside some of these files, it seems that most of the method and variable
-names were also changed to single letters. This obfuscation is yet another way
-that app developers try to make it harder to read their source code. But we can
-work past this!
+That's a lot of files to go through! What's more, many of them have meaningless single-letter names that tell us nothing about what they do. In fact, poking around inside some of these files, it seems that most of the method and variable names were also changed to single letters. This obfuscation is yet another way that app developers try to make it harder to read their source code. But we can work past this!
 
-Even though most method and class names have been obfuscated, string constants
-remain untouched throughout the code. We're looking for code that talks to the
-API, so why don't we try searching for string constants that begin with "http":
+Even though most method and class names have been obfuscated, string constants remain untouched throughout the code. We're looking for code that talks to the API, so why don't we try searching for string constants that begin with "http":
 
 [![Searching for '"http' in the code directory][screenshot-search-http-string]][screenshot-search-http-string]
 
-Sweet, we got a bunch of promising looking results. It looks like
-https://hr-humblebundle.appspot.com is the domain name all the API calls get
-made to, and it also looks like i.smali is the class that handles most of the
-API interaction. Progress, heck yeah!
+Sweet, we got a bunch of promising looking results. It looks like https://hr-humblebundle.appspot.com is the domain name all the API calls get made to, and it also looks like i.smali is the class that handles most of the API interaction. Progress, heck yeah!
 
 ## Make a login request
 
-The first thing we'll probably need to accomplish before we can download files
-from Humble Bundle is logging in with our account, so let's investigate that
-"https://hr-humblebundle.appspot.com/processlogin" URL.
-Here's the full method that it appears in in the first instance:
+The first thing we'll probably need to accomplish before we can download files from Humble Bundle is logging in with our account, so let's investigate that "https://hr-humblebundle.appspot.com/processlogin" URL. Here's the full method that it appears in in the first instance:
 
 {% highlight smali linenos %}
 .method public a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
@@ -493,31 +401,11 @@ Here's the full method that it appears in in the first instance:
 .end method
 {% endhighlight %}
 
-That's a bit daunting to look at, but we can break it down. This is a method
-that accepts five strings as parameters (which will be stored in p1,p2,p3,p4,p5
--- we skip p0 because p0 is automatically set to `this`) and returns a string.
-A lot of the bulk in this function is pretty straightforward -- it creates an
-ArrayList in v2 (line 14), then creates a bunch of BasicNameValuePair objects to
-put in the ArrayList. This seems to be building the list of arguments that will
-be passed to the API server -- if we look up
-[the BasicNameValuePair class](https://developer.android.com/reference/org/apache/http/message/BasicNameValuePair.html),
-we can see that's precisely what it's intended for.
+That's a bit daunting to look at, but we can break it down. This is a method that accepts five strings as parameters (which will be stored in p1, p2, p3, p4, p5 -- we skip p0 because p0 is automatically set to `this`) and returns a string. A lot of the bulk in this function is pretty straightforward -- it creates an ArrayList in v2 (line 14), then creates a bunch of BasicNameValuePair objects to put in the ArrayList. This seems to be building the list of arguments that will be passed to the API server -- if we look up [the BasicNameValuePair class](https://developer.android.com/reference/org/apache/http/message/BasicNameValuePair.html), we can see that's precisely what it's intended for.
 
-After it builds the name-value pair list, it passes that ArrayList as and the
-'processlogin' URL to a method called 'b' in the class
-'com/humblebundle/library/a/a' (this is on line 68). Then it takes the
-HttpResponse returned by the 'b' method, and passes it to another method in the
-same class called 'a' to get back a string. It then creates a JSONObject from
-that string. The rest of the code doesn't seem too important, but skimming it,
-we can see that it handles the cookies and then does something with a Context
-(which probably means something is changing in the app's UI, like going to a
-new View or something).
+After it builds the name-value pair list, it passes that ArrayList as and the 'processlogin' URL to a method called 'b' in the class 'com/humblebundle/library/a/a' (this is on line 68). Then it takes the HttpResponse returned by the 'b' method, and passes it to another method in the same class called 'a' to get back a string. It then creates a JSONObject from that string. The rest of the code doesn't seem too important, but skimming it, we can see that it handles the cookies and then does something with a Context (which probably means something is changing in the app's UI, like going to a new View or something).
 
-We could dig into the com/humblebundle/library/a/a.smali file and figure out
-what those methods do, but it's also not hard to just guess. We passed in
-a URL and a list of name-value pairs, and we got back some JSON, so those
-methods probably execute the HTTP request to the server. At this point, we can
-guess that a login request probably looks something like this:
+We could dig into the com/humblebundle/library/a/a.smali file and figure out what those methods do, but it's also not hard to just guess. We passed in a URL and a list of name-value pairs, and we got back some JSON, so those methods probably execute the HTTP request to the server. At this point, we can guess that a login request probably looks something like this:
 
 ```
 POST /processlogin HTTP/1.1
@@ -531,29 +419,19 @@ ajax=true
 &recaptcha_response_field=???
 ```
 
-We've got a few blanks to fill in, but some of them are obvious. Username is
-your email address, password is your password, and authy-token is the two-factor
-authentication code (either from the Authy app or from an SMS). But it looks
-like the server is also expecting us to solve a captcha.
+We've got a few blanks to fill in, but some of them are obvious. Username is your email address, password is your password, and authy-token is the two-factor authentication code (either from the Authy app or from an SMS). But it looks like the server is also expecting us to solve a captcha.
 
 ## Solving the captcha
 
-We need to solve a captcha apparently, so obviously there must be code somewhere
-else in the app that downloads a captcha for the user to solve. Let's go back to
-that search for strings starting with "http" that we did a while ago:
+We need to solve a captcha apparently, so obviously there must be code somewhere else in the app that downloads a captcha for the user to solve. Let's go back to that search for strings starting with "http" that we did a while ago:
 
 [![Searching for '"http' in the code directory][screenshot-search-http-string]][screenshot-search-http-string]
 
-One of the other results there is
-https://hr-humblebundle.appspot.com/user/captcha. It turns out, that URL is
-actually a web page that shows you a captcha:
+One of the other results there is https://hr-humblebundle.appspot.com/user/captcha. It turns out, that URL is actually a web page that shows you a captcha:
 
 [![Humble Bundle captcha][screenshot-captcha-page]][screenshot-captcha-page]
 
-If you load the page yourself, solve the captcha, and click the Submit button,
-you'll find that nothing actually happens for some reason. Looking in the source
-code of the web page, we find this bit of JavaScript that seems to control what
-happens when that Submit button is clicked:
+If you load the page yourself, solve the captcha, and click the Submit button, you'll find that nothing actually happens for some reason. Looking in the source code of the web page, we find this bit of JavaScript that seems to control what happens when that Submit button is clicked:
 
 {% highlight javascript %}
 var captcha = new Recaptcha2('captcha-holder');
@@ -569,23 +447,11 @@ $('input[type=submit]').click(function(e){
 })
 {% endhighlight %}
 
-After the user clicks the Submit button, it looks for an object called `Android`
-and tries to pass the reCAPTCHA challenge and response to a `setCaptchaResponse`
-method. However, the Android object does not exist on our machine, so this code
-ends up doing essentially nothing. It's likely that, when this web page is
-rendered inside the Humble Bundle app, it injects an object called `Android`
-into the page -- since we're using our web browser instead of the app, the
-object never gets created.
+After the user clicks the Submit button, it looks for an object called `Android` and tries to pass the reCAPTCHA challenge and response to a `setCaptchaResponse` method. However, the Android object does not exist on our machine, so this code ends up doing essentially nothing. It's likely that, when this web page is rendered inside the Humble Bundle app, it injects an object called `Android` into the page -- since we're using our web browser instead of the app, the object never gets created.
 
-_(As a matter of fact, you can find the code that does this in
-CaptchaActivity.smali. The onCreate method in that class makes a WebView, then
-sets an instance of the class 'CaptchaActivity$a' as the JavaScript interface
-for that WebView. Thus, the real setCaptchaResponse method can be found in
-CaptchaActivity$a.smali)_
+_(As a matter of fact, you can find the code that does this in CaptchaActivity.smali. The onCreate method in that class makes a WebView, then sets an instance of the class 'CaptchaActivity$a' as the JavaScript interface for that WebView. Thus, the real setCaptchaResponse method can be found in CaptchaActivity$a.smali)_
 
-The easiest way to solve this is by creating our own version of the
-`Android.setCaptchaResponse` method. I opened the JavaScript console on the
-web page and typed in this:
+The easiest way to solve this is by creating our own version of the `Android.setCaptchaResponse` method. I opened the JavaScript console on the web page and typed in this:
 
 {% highlight javascript %}
 window.Android = {
@@ -595,15 +461,11 @@ window.Android = {
 }
 {% endhighlight %}
 
-This simply prints out the reCAPTCHA response in the console (I didn't bother
-printing the challenge because, as you can see in the original JavaScript,
-it's always an empty string). Now, if we solve the captcha and click Submit,
-we see this in the console:
+This simply prints out the reCAPTCHA response in the console (I didn't bother printing the challenge because, as you can see in the original JavaScript, it's always an empty string). Now, if we solve the captcha and click Submit, we see this in the console:
 
 [![Captcha response in JavaScript console][screenshot-captcha-logged]][screenshot-captcha-logged]
 
-That big ugly string is our recaptcha_response_field, which is just what we
-needed for the /processlogin request.
+That big ugly string is our recaptcha_response_field, which is just what we needed for the /processlogin request.
 
 ## Making the login request
 
@@ -629,11 +491,7 @@ And then the server will respond with this:
 
 That's no good, where did we go wrong?
 
-Well, I'm gonna save you the debugging and cut to the chase. Remember back in
-the "[Make a login request](#make-a-login-request)" section, when I skipped over
-reading the 'com/humblebundle/library/a/a.smali' file, and just took an educated
-guess about what it does? Well, it turns out that 'a/a.smali' adds a header
-`X-Requested-By: hb_android_app` to all POST requests it sends.
+Well, I'm gonna save you the debugging and cut to the chase. Remember back in the "[Make a login request](#make-a-login-request)" section, when I skipped over reading the 'com/humblebundle/library/a/a.smali' file, and just took an educated guess about what it does? Well, it turns out that 'a/a.smali' adds a header `X-Requested-By: hb_android_app` to all POST requests it sends.
 
 Once we add that header to our request, the server will return this:
 
@@ -641,19 +499,13 @@ Once we add that header to our request, the server will return this:
 {"goto": "/home", "success": true}
 ```
 
-We're in! It also sets some session cookies, which we can just include on future
-requests to remain logged in.
+We're in! It also sets some session cookies, which we can just include on future requests to remain logged in.
 
 ## More API endpoints
 
-Now that we've logged in, we need to figure out how to get our list of games.
-Finding the URLs for doing this was easy with the methods I've already
-described, and frankly this blog post is getting to be obscenely long, so I'm
-not going to continue the in-depth walkthrough of my process.
+Now that we've logged in, we need to figure out how to get our list of games. Finding the URLs for doing this was easy with the methods I've already described, and frankly this blog post is getting to be obscenely long, so I'm not going to continue the in-depth walkthrough of my process.
 
-To get the list of everything in our library, you make a GET request to
-https://hr-humblebundle.appspot.com/api/v1/user/order (while logged in and
-including the X-Requested-By header), and it returns something like this:
+To get the list of everything in our library, you make a GET request to https://hr-humblebundle.appspot.com/api/v1/user/order (while logged in and including the X-Requested-By header), and it returns something like this:
 
 ```
 [
@@ -667,9 +519,7 @@ including the X-Requested-By header), and it returns something like this:
 ]
 ```
 
-To get the details for any particular gamekey, make a GET request to
-https://hr-humblebundle.appspot.com/api/v1/order/YOUR_GAMEKEY_HERE. You'll
-get back a response with a ton of info, like this one:
+To get the details for any particular gamekey, make a GET request to https://hr-humblebundle.appspot.com/api/v1/order/YOUR_GAMEKEY_HERE. You'll get back a response with a ton of info, like this one:
 
 ```
 {
@@ -794,12 +644,7 @@ get back a response with a ton of info, like this one:
 }
 ```
 
-I also found the URL
-https://hr-humblebundle.appspot.com/androidapp/v2/service_check
-to be mildly interesting -- it returns a simple array of all game bundles that
-are currently available. It doesn't require authentication or the X-Requested-By
-header to access. Here's what its response looks like right now, for sake of
-example:
+I also found the URL https://hr-humblebundle.appspot.com/androidapp/v2/service_check to be mildly interesting -- it returns a simple array of all game bundles that are currently available. It doesn't require authentication or the X-Requested-By header to access. Here's what its response looks like right now, for sake of example:
 
 ```
 [
@@ -821,17 +666,11 @@ example:
 ]
 ```
 
-There also appear to be a few other API endpoints in the app, related to
-signing up for a new account, claiming a bundle, finding unclaimed orders,
-and checking for app updates, but none of those seemed interesting enough to
-investigate. Feel free to copy my methods and figure them out yourself.
+There also appear to be a few other API endpoints in the app, related to signing up for a new account, claiming a bundle, finding unclaimed orders, and checking for app updates, but none of those seemed interesting enough to investigate. Feel free to copy my methods and figure them out yourself.
 
-[I've written documentation for all the API endpoints over here]({{ site.url }}/projects/humble-bundle-api),
-including a collection for Postman if you just want to test it out.
+[I've written documentation for all the API endpoints over here]({{ site.url }}/projects/humble-bundle-api), including a collection for Postman if you just want to test it out.
 
-Ultimately, I want to use this API to make some sort of cool automated
-download tool, but that'll have to wait for another day. Let me know if you
-make anything cool with this API!
+Ultimately, I want to use this API to make some sort of cool automated download tool, but that'll have to wait for another day. Let me know if you make anything cool with this API!
 
 [screenshot-search-http-string]: {{ site.url }}/assets/humble-bundle-api/screenshot-search-http-string.png
 [screenshot-captcha-page]: {{ site.url }}/assets/humble-bundle-api/screenshot-captcha-page.png
