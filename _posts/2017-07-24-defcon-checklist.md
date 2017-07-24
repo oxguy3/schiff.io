@@ -33,4 +33,4 @@ So, I'll be bringing my normal work laptop (MacBook Pro), my normal cell phone (
 * Use [USB condom](http://syncstop.com/) if using public charging station.
 * Only communicate using [Signal](https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms) if possible.
 
-So that's my list. It might not be perfect, but I think it should be sufficient for me. What do you think? Am I too carefree, or even too paranoid?
+So that's my list. It might not be perfect, but I think it should be sufficient for me. What do you think? Am I too carefree, or even too paranoid? Did I miss anything crucial?
