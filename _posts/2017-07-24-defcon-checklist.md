@@ -3,7 +3,7 @@ title:  "Defcon preparation checklist"
 date:   2017-07-24 12:39:53 -0400
 tags: defcon security
 ---
-I'm heading to my first Defcon on Wednesday, and naturally, I'm a little bit anxious about prepping my devices so as to not get hacked/pwned/intercepted/etc. The advice I've seen for this varies wildly -- some people go all out and use a separate phone and laptop for the convention, while others simply turn off wi-fi and Bluetooth for the con.
+I'm heading to my first Defcon on Wednesday, and naturally, I'm a little bit anxious about prepping my devices so as to not get pwned. The advice I've seen for this varies wildly -- some people go all out and use a separate phone and laptop for the convention, while others simply turn off wi-fi and Bluetooth.
 
 I'm thinking the best strategy for me is somewhere in the middle -- make sure I'm locked down and have backups, but don't put myself through hell when the odds of anything bad happening are realistically low. I'm not a worthwhile target; anyone who would waste 0days on the likes of me is probably not smart enough to have found a 0day in the first place.
 
@@ -15,14 +15,14 @@ So, I'll be bringing my normal work laptop (MacBook Pro), my normal cell phone (
     * `brew update; brew upgrade`
     * app updates
     * Android updates (if available)
-* Backup everything of value.
+* Backup everything.
 * Shut down local web/database servers.
 * Port scan myself with nmap -- make sure I'm not running anything else.
 * Enable 1Password [Travel Mode](https://support.1password.com/travel-mode/).
 * Withdraw enough cash that I never have to use an ATM in Vegas.
 * Remove RFID cards from my wallet (namely my office badge).
 
-## During con
+## During the con
 * Keep all unnecessary radios off (Wi-fi, Bluetooth, NFC, GPS).
     * Due to [BroadPwn](http://www.techrepublic.com/article/android-security-bulletin-july-2017-what-you-need-to-know/), I'm not gonna be using wi-fi at all on my Android devices (neither of them is up to the July update yet).
 * In the con, only use direct-to-internet wi-fi. In the hotel, only use wired.
