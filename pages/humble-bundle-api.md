@@ -1,6 +1,6 @@
 ---
 title: Humble Bundle API documentation
-permalink: /projects/humble-bundle-api
+permalink: /pages/humble-bundle-api
 ---
 
 Here's a high-level summary of all the API endpoints I know about for Humble
