@@ -35,3 +35,5 @@ So, I'll be bringing my normal work laptop (MacBook Pro), my normal cell phone (
 * Only communicate using [Signal](https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms) if possible.
 
 So that's my list. It might not be perfect, but I think it should be sufficient for me. What do you think? Am I too carefree, or even too paranoid? Did I miss anything crucial?
+
+[[discuss on r/Defcon](https://www.reddit.com/r/Defcon/comments/6p9q32/i_made_a_security_prep_checklist_for_my_first/)]
