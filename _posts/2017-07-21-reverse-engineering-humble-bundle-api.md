@@ -675,3 +675,5 @@ Ultimately, I want to use this API to make some sort of cool automated download 
 [screenshot-search-http-string]: {{ site.url }}/assets/humble-bundle-api/screenshot-search-http-string.png
 [screenshot-captcha-page]: {{ site.url }}/assets/humble-bundle-api/screenshot-captcha-page.png
 [screenshot-captcha-logged]: {{ site.url }}/assets/humble-bundle-api/screenshot-captcha-logged.png
+
+[[discuss on /r/ReverseEngineering](https://www.reddit.com/r/ReverseEngineering/comments/6vk459/reverse_engineering_the_humble_bundle_android_app/)]
