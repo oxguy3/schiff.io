@@ -5,6 +5,8 @@ My personal website -- accessible at [schiff.io](https://www.schiff.io).
 ## License
 Copyright 2017 Hayden Schiff. All rights reserved unless otherwise noted.
 
+However, if there's something in this repo that you want to reuse, feel free to [contact me](https://www.schiff.io/about#contact) or [open an issue](https://github.com/oxguy3/schiff.io/issues) about it. I don't want to use a free license for the entire repository, but if there's a particular bit of theme code or something like that that you want to reuse, I'm sure we could work something out.
+
 ### Font Awesome
 Font Awesome is an icon set.
 Source: http://fontawesome.io/
