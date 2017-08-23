@@ -60,7 +60,7 @@ MLS will only be accepting two teams from each region, so there is a lot more co
 
 Well, that's the million-dollar question, isn't it? MLS has laid out four criteria they're looking for in the expansion candidates (in order of importance):
 
-1. **Ownership.** The team's owners need to be committed for the long-term and they need to have plenty of capital.
+1. **Ownership.** The team's owners need to be committed for the long-term and they need to have plenty of capital (they'll have to pay a $150 million fee to the MLS just for the privilege of joining).
 1. **Stadium.** The team needs to have government-approved plans to build a soccer-specific stadium (i.e. a stadium exclusively for soccer) where the team will control revenue (e.g. naming rights, concessions, parking, etc).
 1. **Market.** The team needs to be in a large television/media market.
 1. **Supporters.** There needs to be evidence of local support/interest for soccer.
