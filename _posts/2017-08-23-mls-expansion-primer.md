@@ -72,3 +72,5 @@ That's a super brief summary, but there are a ton of wildcards and technicalitie
 * "[MLS expansion race began with 12, but will enough viable bids even emerge?](https://www.si.com/planet-futbol/2017/06/23/mls-expansion-28-teams-favorites-timeline)" on Sports Illustrated
 * "[MLS expansion: An in-depth look at the many bids for the league's next four clubs](https://www.si.com/planet-futbol/mls-expansion-prospective-cities-bids-28-teams)" on Sports Illustrated (more in-depth than the first link, but a bit outdated -- from December 2016)
 * "[Expansion of Major League Soccer](https://en.wikipedia.org/wiki/Expansion_of_Major_League_Soccer)" on Wikipedia
+
+[[discuss on /r/MLS](https://www.reddit.com/r/MLS/comments/6vl8yf/quick_primer_on_mls_expansion_for_when_your/)]
