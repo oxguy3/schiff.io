@@ -5,7 +5,7 @@ permalink: /projects/humble-bundle-api
 
 Here's a high-level summary of all the API endpoints I know about for Humble
 Bundle's API, used by their Android app. You can read more about this API (and
-about how I found this endpoints) in
+about how I found these endpoints) in
 [my blog post]({{ site.url }}/blog/2017/07/21/reverse-engineering-humble-bundle-api.html).
 All of these requests should be made to https://hr-humblebundle.appspot.com. You
 also need to include the header `X-Requested-By: hb_android_app` with every
