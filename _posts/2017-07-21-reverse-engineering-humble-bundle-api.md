@@ -20,6 +20,8 @@ My initial thinking was that I'd figure out how the API works by intercepting th
 
 Unfortunately, it's a bit trickier to accomplish with Android. My phone isn't rooted, and I don't have an Android emulator installed on my laptop (and I'd rather not get one -- my hard drive is very small and low on space). The only way I can intercept the app's traffic is by adding some sketchy third-party app on my phone that emulates a VPN and intercepts the traffic that way. The app I tried for doing this didn't seem to work on first test, and frankly, I felt uneasy about trusting some random app with so much power on my phone, so I deleted it and went back to the drawing board.
 
+_UPDATE: A lot of people have told me about various ways I could have made this approach work without using a sketchy app -- for example, having Android use an HTTP proxy that is running on my computer. I thought about trying this approach, but was worried I might run into gotchas such as certificate pinning or custom HTTP code that ignores my proxy. Decompiling seemed less likely to have such holdups (and, most importantly, it seemed like more fun)._
+
 ## Decompiling the app
 
 Well, if there's no easy way to spy on the app as it's running, what if I just took it apart and figured out how it worked from the inside? This method is not the easiest, but for an app as simple as Humble Bundle's, it just might be feasible.
