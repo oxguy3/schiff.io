@@ -52,7 +52,7 @@ Back in January 2017, MLS accepted bids for the second expansion round, and rece
 | St. Louis, MO |
 | Tampa/St. Petersburg, FL |
 
-All of these cities (except Detroit and San Diego) already have an existing soccer team playing in the USL or NASL. Many of the MLS bids are being made by the owners of the USL/NASL teams, so those lower-level teams would shut down in favor of the new MLS team.
+All of these cities (except Detroit and San Diego) already have an existing (or announced) soccer team playing in the USL or NASL. Many of the MLS bids are being made by the owners of the USL/NASL teams, so those lower-level teams would shut down in favor of the new MLS team.
 
 MLS will only be accepting two teams from each region, so there is a lot more competition in the east (8 bids) than in the west (4 bids).
 
