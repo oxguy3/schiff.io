@@ -27,6 +27,10 @@ layout: default
     {{ content }}
   </div>
 
+  <aside class="post-after">
+    If you enjoyed this, you might also like <a href="{{ site.url }}/blog/">my other posts</a>. You can subscribe <a href="{{ site.url }}/feed.xml">via RSS</a>.
+  </aside>
+
   {% if site.disqus.shortname %}
     {% include disqus_comments.html %}
   {% endif %}
