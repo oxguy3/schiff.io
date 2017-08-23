@@ -3,19 +3,11 @@ title: Humble Bundle API documentation
 permalink: /projects/humble-bundle-api
 ---
 
-Here's a high-level summary of all the API endpoints I know about for Humble
-Bundle's API, used by their Android app. You can read more about this API (and
-about how I found these endpoints) in
-[my blog post]({{ site.url }}/blog/2017/07/21/reverse-engineering-humble-bundle-api.html).
-All of these requests should be made to https://hr-humblebundle.appspot.com. You
-also need to include the header `X-Requested-By: hb_android_app` with every
-request.
+Here's a high-level summary of all the API endpoints I know about for Humble Bundle's API, used by their Android app. You can read more about this API (and about how I found these endpoints) in [my blog post]({{ site.url }}/blog/2017/07/21/reverse-engineering-humble-bundle-api.html).
+
 
 ## Getting a captcha
-To login or request an SMS code (via the /processlogin endpoint), you need to
-first solve a captcha. To do this, first visit
-[this page](https://hr-humblebundle.appspot.com/user/captcha) in a web browser.
-Open the JavaScript console in your browser, and paste in the following code:
+To login or request an SMS code (via the /processlogin endpoint), you need to first solve a captcha. To do this, first visit [this page](https://hr-humblebundle.appspot.com/user/captcha) in a web browser. Open the JavaScript console in your browser, and paste in the following code:
 ```
 window.Android = {
     setCaptchaResponse: function(challenge, response) {
@@ -23,8 +15,7 @@ window.Android = {
     }
 }
 ```
-Now, solve the captcha and click Submit. When you do, a big long string will
-appear in the JavaScript console like this:
+Now, solve the captcha and click Submit. When you do, a big long string will appear in the JavaScript console like this:
 
 ![Humble Bundle captcha]({{ site.url }}/assets/humble-bundle-api/screenshot-captcha-logged.png)
 
@@ -32,14 +23,9 @@ That string is your 'recaptcha_response_field' to use in your API calls.
 
 ## API methods
 
-Here is each endpoint, broken down to details. If you use the
-[Postman](https://www.getpostman.com/) app, I've already built a collection with
-all of these endpoints that you can import. You can download it
-[here]({{ site.url }}/assets/humble-bundle-api/humble-bundle.postman_collection.json).
-You'll need to set the following variables in your Postman environment:
-username, password, authy_token, recaptcha_response
-(read [this](https://www.getpostman.com/docs/postman/environments_and_globals/manage_environments)
-if you don't know what Postman environments are).
+Here is each endpoint, broken down to details. If you use the [Postman](https://www.getpostman.com/) app, I've already built a collection with all of these endpoints that you can import. You can download it [here]({{ site.url }}/assets/humble-bundle-api/humble-bundle.postman_collection.json). You'll need to set the following variables in your Postman environment: username, password, authy_token, recaptcha_response (read [this](https://www.getpostman.com/docs/postman/environments_and_globals/manage_environments) if you don't know what Postman environments are).
+
+**Important:** You need to include the header `X-Requested-By: hb_android_app` with every request, or you'll only get error messages back from the API.
 
 ### Request an SMS 2FA code be sent
 Method: POST  
@@ -104,8 +90,7 @@ Method: GET
 Must be logged in: yes  
 URL: https://hr-humblebundle.appspot.com/api/v1/order/{gamekey}
 
-Replace `{gamekey}` with a gamekey, which you can get from the 'get orders list'
-API endpoint.
+Replace `{gamekey}` with a gamekey, which you can get from the 'get orders list' API endpoint.
 
 Example response:
 ```
