@@ -1,5 +1,5 @@
 ---
-title: "Automating my Slack status with launchd"
+title: "Automating my Slack status based on my wi-fi location"
 date: 2017-08-31 16:08:23 -0400
 tags: slack mac
 ---
