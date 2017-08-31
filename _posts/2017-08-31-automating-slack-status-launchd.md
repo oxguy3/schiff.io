@@ -181,3 +181,6 @@ launchd load ~/Library/LaunchAgents/local.slackstatus.plist
 And that's it; our Slack status is now automatically updated whenever we change wi-fi networks, with no risk of forgetting! launchd is really great for these types of minute automations; I also use it to automatically login to the captive portal on my workplace's wi-fi.
 
 Hope you found this interesting! Let me know if you've done any other cool things with launchd.
+
+[[discuss on /r/programming](https://www.reddit.com/r/programming/comments/6x9fx0/automating_my_slack_status_with_launchd/)]  
+[[discuss on Hacker News](https://news.ycombinator.com/item?id=15143489)]
