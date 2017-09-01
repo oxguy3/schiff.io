@@ -175,7 +175,7 @@ _(I added additional statuses to be set when I'm connected to Starbucks wi-fi or
 With those two files created, we just need to load the launchd config file to get it going. The command for that is:
 
 ```
-launchd load ~/Library/LaunchAgents/local.slackstatus.plist
+launchctl load ~/Library/LaunchAgents/local.slackstatus.plist
 ```
 
 And that's it; our Slack status is now automatically updated whenever we change wi-fi networks, with no risk of forgetting! launchd is really great for these types of minute automations; I also use it to automatically login to the captive portal on my workplace's wi-fi.
