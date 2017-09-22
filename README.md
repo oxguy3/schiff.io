@@ -2,6 +2,23 @@
 
 My personal website -- accessible at [schiff.io](https://www.schiff.io).
 
+## Building
+
+I'm not sure why you'd want to, but you can easily build this site on your local machine. You'll need Ruby (2.4 or greater) installed already, but everything else will install itself. Here's the script I use to build it on my web server:
+
+```
+#!/usr/bin/env bash
+export JEKYLL_ENV=production
+cd schiff.io/
+git pull
+bundle install
+jekyll build
+```
+
+That builds a production copy of the site in schiff.io/\_site/ -- you need to run your own web server to actually serve it (I use Apache).
+
+If you just want to test the site locally, just run `bundle exec jekyll serve`, and it'll spin up a test web server at http://localhost:4000/ (you need to have already run `bundle install` once first).
+
 ## License
 Copyright 2017 Hayden Schiff. All rights reserved unless otherwise noted.
 

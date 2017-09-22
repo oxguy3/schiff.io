@@ -1,3 +1,6 @@
-# fly, my pretties!
 User-agent: *
 Disallow:
+
+# I won't block you from scraping my site, but you should know: there is an
+# easier way! My entire site is up on GitHub, where you can download it as one
+# big ZIP file and then build it yourself: https://github.com/oxguy3/schiff.io
