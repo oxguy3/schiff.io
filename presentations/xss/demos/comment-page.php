@@ -1,4 +1,5 @@
 <?php
+header("Content-Security-Policy: default-src * 'unsafe-eval' 'unsafe-inline'");
 if (isset($_GET['insecure'])) {
     header('X-XSS-Protection: 0');
 }
