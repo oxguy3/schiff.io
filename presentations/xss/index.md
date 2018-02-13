@@ -12,8 +12,8 @@ Links:
 * History of the web
   * [History of the WWW on Wikipedia](https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web)
   * [The first website](http://info.cern.ch/hypertext/WWW/Help.html)
-* [Demo: CSS and JavaScript](demos/css-and-js.php)
-* [Demo: Vulnerable comment page](demos/comment-page.php)
+* [Demo: CSS and JavaScript](https://unsafe.schiff.io/xss-presentation-demos/css-and-js.php)
+* [Demo: Vulnerable comment page](https://unsafe.schiff.io/xss-presentation-demos/comment-page.php)
 * The MySpace worm (samy is my hero)
   * [Samy's own write-up](https://samy.pl/popular/)
   * [Samy's technical explanation](https://samy.pl/popular/tech.html)
