@@ -45,6 +45,4 @@ Links:
   * [Atlassian Jira](https://www.netsparker.com/blog/web-security/apacheorg-and-jira-incident/)
   * [Equifax](https://www.forbes.com/sites/thomasbrewster/2017/09/08/equifax-data-breach-history/)
 
-
-![CC BY 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)  
 These slides and demos are licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
