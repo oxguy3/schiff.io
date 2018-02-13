@@ -1,6 +1,8 @@
 ---
-title: "Cross-site scripting: What it is and how we got here"
+title: "Cross-site scripting (XSS) presentation"
 ---
+
+**Cross-site scripting: What it is and how we got here**
 
 Presentation video coming soon.
 
