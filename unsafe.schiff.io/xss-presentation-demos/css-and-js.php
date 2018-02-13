@@ -1,6 +1,3 @@
-<?php
-header("Content-Security-Policy: default-src * 'unsafe-eval' 'unsafe-inline'");
-?>
 <!doctype html>
 <html>
   <head>
