@@ -1,5 +1,5 @@
 ---
-title: "Cross-site scripting (XSS) presentation"
+title: "XSS presentation"
 ---
 
 **Cross-site scripting: What it is and how we got here**
@@ -11,7 +11,7 @@ Presentation video coming soon.
 Links:
 * History of the web
   * [History of the WWW on Wikipedia](https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web)
-  * [The first website](http://info.cern.ch/hypertext/WWW/Help.html)
+  * [The first website](http://info.cern.ch/hypertext/WWW/TheProject.html)
 * [Demo: CSS and JavaScript](https://unsafe.schiff.io/xss-presentation-demos/css-and-js.php)
 * [Demo: Vulnerable comment page](https://unsafe.schiff.io/xss-presentation-demos/comment-page.php)
 * The MySpace worm (samy is my hero)
@@ -47,6 +47,11 @@ Links:
   * [Twitter](https://blog.twitter.com/official/en_us/a/2010/all-about-the-onmouseover-incident.html)
   * [WordPress](http://blog.trendmicro.com/trendlabs-security-intelligence/wordpress-vulnerability-puts-millions-of-sites-at-risk-trend-micro-solutions-available/)
   * [Yahoo!](http://www.hotforsecurity.com/blog/yahoo-accounts-hijacked-via-xss-type-attack-5172.html)
+* [Interactive demo](https://unsafe.schiff.io/xss-presentation-demos/widgets-register.php)
+  * [OWASP XSS Filter Evasion Cheat Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
+* Preventing XSS
+  * [OWASP XSS Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting	%29_Prevention_Cheat_Sheet)
+  * [There's more to HTML escaping than &, <, >, and "](http://wonko.com/post/html-escaping)
 * Further reading
   * [XSS on Wikipedia](https://en.wikipedia.org/wiki/Cross-site_scripting) (general audience)
   * [XSS on OWASP](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)) (more technical)

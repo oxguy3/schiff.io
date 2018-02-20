@@ -6,7 +6,7 @@ if (isset($_GET['insecure'])) {
 <!doctype html>
 <html>
 <head>
-    <title>Demo: Comment page with XSS vulnerability</title>
+    <title>Demo: Contact page with XSS vulnerability</title>
     <style>
     .your-comment {
         padding: 10px;
@@ -20,16 +20,16 @@ if (isset($_GET['insecure'])) {
     </script>
 </head>
 <body>
-    <h1>Demo: Comment page with XSS vulnerability</h1>
+    <h1>Demo: Contact page with XSS vulnerability</h1>
     <form method="get">
-        <p>Please submit a comment:</p>
+        <p>To contact us, please submit a message below:</p>
         <textarea id="commentBox" name="comment" cols="60" rows="8"></textarea>
         <br />
         <input type="submit" />
     </form>
 
     <p>
-        Examples of malicious comments:
+        Examples of malicious messages:
         <select id="demoComments">
             <option value="">
                 -- Select one --
@@ -55,7 +55,7 @@ if (isset($_GET['insecure'])) {
     <?php if (isset($_GET['comment'])) { ?>
         <hr>
         <h2>Thanks for your submission!</h2>
-        <p>Your comment was:</p>
+        <p>Your message was:</p>
         <div class="your-comment">
             <?php echo $_GET['comment']; ?>
         </div>
