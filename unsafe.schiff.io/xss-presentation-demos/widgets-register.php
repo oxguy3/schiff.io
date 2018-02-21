@@ -111,7 +111,7 @@ if (isset($_POST['register'])) {
                             </div>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="registerInputImageURL">Profile picture URL <small>(128x128 pixels)</small></label>
+                            <label for="registerInputImageURL">Profile picture URL <small>(32x32 pixels)</small></label>
                             <input type="url" name="imageUrl" class="form-control" id="registerInputImageURL" placeholder="https://i.imgur.com/R8IFHAB.jpg">
                         </div>
                     </div>
@@ -146,7 +146,7 @@ if (isset($_POST['register'])) {
                 foreach($result as $row)
                 {
                     print "<tr>";
-                    print "<td><img height=\"128\" width=\"128\" src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
+                    print "<td><img height=\"32\" width=\"32\" src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
                     print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
                     print "<td>".htmlspecialchars($row['email'])."</td>";
                     print "<td>".htmlspecialchars($row['phone'])."</td>";
