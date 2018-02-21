@@ -146,7 +146,7 @@ if (isset($_POST['register'])) {
                 foreach($result as $row)
                 {
                     print "<tr>";
-                    print "<td><img height="128" width="128" src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
+                    print "<td><img height=\"128\" width=\"128\" src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
                     print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
                     print "<td>".htmlspecialchars($row['email'])."</td>";
                     print "<td>".htmlspecialchars($row['phone'])."</td>";
