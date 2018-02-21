@@ -115,7 +115,7 @@
                         </tr>
                     </thead>
                 <?php
-                $db = new PDO('sqlite:sqlite/xss-demo.db');
+                $db = new PDO('sqlite:/home/centos/sqlite/xss-demo.db');
                 $result = $db->query("SELECT * FROM registrations");
 
                 foreach($result as $row)
