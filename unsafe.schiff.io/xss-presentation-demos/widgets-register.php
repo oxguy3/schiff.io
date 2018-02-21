@@ -51,16 +51,12 @@ if (isset($_POST['register'])) {
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Support</a>
-          </li>
-        </ul>
+            <li class="nav-item active">
+                <a class="nav-link" href="widgets-register.php">Register <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="widgets-user.php">User list</a>
+            </li>
       </div>
     </nav>
 
@@ -119,51 +115,9 @@ if (isset($_POST['register'])) {
                 </form>
                 <?php if ($insertId !== false) { ?>
                 <div class="alert alert-success" role="alert">
-                    <strong>Success!</strong> Your account has been registered! You are user #<?php echo ($insertId + 1); ?>.
+                    <strong>Success!</strong> Your account has been registered! You are user #<?php echo ($insertId + 1); ?>. You can now see your account on <a href="widgets-user.php">the user list</a>.
                 </div>
-            <?php } ?>
-                <!-- <pre><?php print_r($_POST); ?></pre> -->
-
-                <hr>
-                <h2>The XSS Champion is: <span id="champion">no one</span>!</h2>
-                <p>If you want to be the champion, you have to perform an XSS injection that runs this JavaScript function: <code>declareChampion(myName);</code> (replace <code>myName</code> with a string of your name)</p>
-
-                <hr>
-                <h2>List of registered users</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Pic</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Twitter</th>
-                        </tr>
-                    </thead>
-                <?php
-                $result = $db->query("SELECT * FROM registrations");
-
-                foreach($result as $row)
-                {
-                    print "<tr>";
-                    $imageUrl = "placeholder-user.png";
-                    if (array_key_exists('imageUrl', $row) && $row['imageUrl']!=NULL && $row['imageUrl']!='') {
-                        $imageUrl = htmlspecialchars($row['imageUrl']);
-                    }
-                    print "<td><img height=\"32\" width=\"32\" src='".$imageUrl."'/></td>";
-                    print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
-                    print "<td>".htmlspecialchars($row['email'])."</td>";
-                    print "<td>".htmlspecialchars($row['phone'])."</td>";
-                    if (array_key_exists('twitter', $row) && $row['twitter']!=NULL && $row['twitter']!='') {
-                        print "<td><a href=\"https://twitter.com/".htmlspecialchars($row['twitter'])."\">@".htmlspecialchars($row['twitter'])."</a></td>";
-                    } else {
-                        print "<td></td>";
-                    }
-                    print "</tr>";
-                }
-
-                ?>
-                </table>
+                <?php } ?>
 
             </div>
         </div>
@@ -171,10 +125,5 @@ if (isset($_POST['register'])) {
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-    function declareChampion(name) {
-        $('#champion').text(name);
-    }
-    </script>
   </body>
 </html>
