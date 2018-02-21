@@ -146,7 +146,11 @@ if (isset($_POST['register'])) {
                 foreach($result as $row)
                 {
                     print "<tr>";
-                    print "<td><img height=\"32\" width=\"32\" src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
+                    $imageUrl = "placeholder-user.png";
+                    if (array_key_exists('imageUrl', $row) && $row['imageUrl']!=NULL && $row['imageUrl']!='') {
+                        $imageUrl = htmlspecialchars($row['imageUrl']);
+                    }
+                    print "<td><img height=\"32\" width=\"32\" src=\"".$imageUrl."\"/></td>";
                     print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
                     print "<td>".htmlspecialchars($row['email'])."</td>";
                     print "<td>".htmlspecialchars($row['phone'])."</td>";
