@@ -37,7 +37,7 @@ $db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
                 <a class="nav-link" href="widgets-register.php">Register</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="widgets-user.php">Users <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="widgets-user.php">User list <span class="sr-only">(current)</span></a>
             </li>
         </ul>
       </div>
