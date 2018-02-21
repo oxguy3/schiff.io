@@ -115,7 +115,7 @@
                         </tr>
                     </thead>
                 <?php
-                $db = new PDO('sqlite:/home/centos/sqlite/xss-demo.db');
+                $db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
                 $result = $db->query("SELECT * FROM registrations");
 
                 foreach($result as $row)
@@ -128,6 +128,7 @@
                     print "<td><a href=\"https://twitter.com/".htmlspecialchars($row['twitter'])."\">@".htmlspecialchars($row['twitter'])."</a></td>";
                     print "</tr>";
                 }
+
                 ?>
                 </table>
 
