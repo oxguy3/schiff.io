@@ -1,3 +1,24 @@
+<?php
+$db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
+
+$insertId = false;
+
+if (isset($_POST['register'])) {
+    $insertSql = 'INSERT INTO registrations(email, password, nameFirst, nameMiddle, nameLast, phone, twitter, imageUrl) VALUES(:email, :password, :nameFirst, :nameMiddle, :nameLast, :phone, :twitter, :imageUrl)';
+    $stmt = $db->prepare($insertSql);
+    $stmt->execute([
+        ':email' => $_POST['email'],
+        ':password' => $_POST['password'],
+        ':nameFirst' => $_POST['nameFirst'],
+        ':nameMiddle' => $_POST['nameMiddle'],
+        ':nameLast' => $_POST['nameLast'],
+        ':phone' => $_POST['phone'],
+        ':twitter' => $_POST['twitter'],
+        ':imageUrl' => $_POST['imageUrl'],
+    ]);
+    $insertId = $db-lastInsertId();
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -90,12 +111,17 @@
                             </div>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="registerInputImageURL">Profile picture URL</label>
+                            <label for="registerInputImageURL">Profile picture URL <small>(128x128 pixels)</small></label>
                             <input type="url" name="imageUrl" class="form-control" id="registerInputImageURL" placeholder="https://i.imgur.com/R8IFHAB.jpg">
                         </div>
                     </div>
                     <button type="submit" name="register" class="btn btn-primary">Submit</button>
                 </form>
+                <?php if ($insertId !== false) { ?>
+                <div class="alert alert-success" role="alert">
+                    <strong>Success!</strong> Your account has been registered! You are user #<?php echo ($insertId + 1); ?>.
+                </div>
+            <?php } ?>
                 <!-- <pre><?php print_r($_POST); ?></pre> -->
 
                 <hr>
@@ -115,13 +141,12 @@
                         </tr>
                     </thead>
                 <?php
-                $db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
                 $result = $db->query("SELECT * FROM registrations");
 
                 foreach($result as $row)
                 {
                     print "<tr>";
-                    print "<td><img src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
+                    print "<td><img height="128" width="128" src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
                     print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
                     print "<td>".htmlspecialchars($row['email'])."</td>";
                     print "<td>".htmlspecialchars($row['phone'])."</td>";
