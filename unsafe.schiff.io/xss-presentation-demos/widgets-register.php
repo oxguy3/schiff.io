@@ -48,7 +48,7 @@
             <div class="col-12">
                 <h2>Welcome to Widgets Inc! Please register your account.</h2>
                 <div class="alert alert-danger" role="alert">
-                    <strong>Warning!</strong> Please don't submit any real information to this demo! I wrote really lazy database code. :)
+                    <strong>Warning:</strong> Please don't submit any real information to this demo! Nothing about this page is secure!
                 </div>
                 <form method="post">
                     <div class="form-row">
@@ -97,17 +97,50 @@
                     <button type="submit" name="register" class="btn btn-primary">Submit</button>
                 </form>
                 <!-- <pre><?php print_r($_POST); ?></pre> -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+
+                <hr>
+                <h2>The XSS Champion is: <span id="champion">no one</span>!</h2>
+                <p>If you want to be the champion, you have to perform an XSS injection that runs this JavaScript function: <code>declareChampion(myName);</code> (replace <code>myName</code> with a string of your name)</p>
+
                 <hr>
                 <h2>List of registered users</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pic</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Twitter</th>
+                        </tr>
+                    </thead>
+                <?php
+                $db = new PDO('sqlite:sqlite/xss-demo.db');
+                $result = $db->query("SELECT * FROM registrations");
+
+                foreach($result as $row)
+                {
+                    print "<tr>";
+                    print "<td><img src=\"".htmlspecialchars($row['imageUrl'])."\"/></td>";
+                    print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
+                    print "<td>".htmlspecialchars($row['email'])."</td>";
+                    print "<td>".htmlspecialchars($row['phone'])."</td>";
+                    print "<td><a href=\"https://twitter.com/".htmlspecialchars($row['twitter'])."\">@".htmlspecialchars($row['twitter'])."</a></td>";
+                    print "</tr>";
+                }
+                ?>
+                </table>
+
             </div>
         </div>
     </main><!-- /.container -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function declareChampion(name) {
+        $('#champion').text(name);
+    }
+    </script>
   </body>
 </html>
