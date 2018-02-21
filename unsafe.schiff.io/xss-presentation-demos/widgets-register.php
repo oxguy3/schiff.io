@@ -157,7 +157,7 @@ if (isset($_POST['register'])) {
                     if (array_key_exists('twitter', $row) && $row['twitter']!=NULL && $row['twitter']!='') {
                         print "<td><a href=\"https://twitter.com/".htmlspecialchars($row['twitter'])."\">@".htmlspecialchars($row['twitter'])."</a></td>";
                     } else {
-                        print "<td></td>"
+                        print "<td></td>";
                     }
                     print "</tr>";
                 }
