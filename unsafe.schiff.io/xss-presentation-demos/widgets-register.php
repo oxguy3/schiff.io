@@ -16,7 +16,7 @@ if (isset($_POST['register'])) {
         ':twitter' => $_POST['twitter'],
         ':imageUrl' => $_POST['imageUrl'],
     ]);
-    $insertId = $db-lastInsertId();
+    $insertId = $db->lastInsertId();
 }
 ?>
 <!doctype html>
@@ -154,7 +154,11 @@ if (isset($_POST['register'])) {
                     print "<td>".htmlspecialchars($row['nameFirst'])." ".htmlspecialchars($row['nameMiddle'])." ".htmlspecialchars($row['nameLast'])."</td>";
                     print "<td>".htmlspecialchars($row['email'])."</td>";
                     print "<td>".htmlspecialchars($row['phone'])."</td>";
-                    print "<td><a href=\"https://twitter.com/".htmlspecialchars($row['twitter'])."\">@".htmlspecialchars($row['twitter'])."</a></td>";
+                    if (array_key_exists('twitter', $row) && $row['twitter']!=NULL && $row['twitter']!='') {
+                        print "<td><a href=\"https://twitter.com/".htmlspecialchars($row['twitter'])."\">@".htmlspecialchars($row['twitter'])."</a></td>";
+                    } else {
+                        print "<td></td>"
+                    }
                     print "</tr>";
                 }
 
