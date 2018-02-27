@@ -1,3 +1,11 @@
+---
+---
+@charset "utf-8";
+
+h1 {
+  font-family: inherit;
+}
+
 .thingido {
     width: auto;
     padding: 40px 30px;
@@ -34,12 +42,8 @@
 }
 .thingido h2 {
     font-size: 48px;
-    font-weight: 600;
+    // font-weight: 600;
     margin: 5px 0px;
-}
-.thingido p {
-    /*display: none;*/
-    /*font-style: italic;*/
 }
 .thingido a {
     color: white;
