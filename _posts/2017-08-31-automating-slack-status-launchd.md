@@ -122,7 +122,7 @@ The only part missing now is the `super_secret_token`. To get that, we first nee
 
 ## The final script
 
-At the end of this mini-project, I ended up with two files -- the launchd config and the bash script. Here is each of them:
+At the end of this mini-project, I ended up with two files -- the launchd config and the bash script. Here is each of them (replace "hayden" with your own username):
 
 **/Users/hayden/Library/LaunchAgents/local.slackstatus.plist**
 
