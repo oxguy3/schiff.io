@@ -182,5 +182,7 @@ And that's it; our Slack status is now automatically updated whenever we change 
 
 Hope you found this interesting! Let me know if you've done any other cool things with launchd.
 
+**Update (2018-03-21):** [Andy Challis (ghandic)](https://andrewchallis.co.uk/) made a deployment script based on this post that simplifies setup—just run his script and it'll install everything. His script also sets your status to "on holiday" if your IP address changes to not match your home country, and it limits itself to only run during your work hours. You can check it out [here](https://github.com/ghandic/slack_integrations/blob/master/update_status_via_wifi.sh).
+
 [[discuss on /r/programming](https://www.reddit.com/r/programming/comments/6x9fx0/automating_my_slack_status_with_launchd/)]  
 [[discuss on Hacker News](https://news.ycombinator.com/item?id=15143489)]
