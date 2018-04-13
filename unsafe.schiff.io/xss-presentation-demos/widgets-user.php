@@ -21,6 +21,14 @@ $db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
         height: 256px;
     }
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function declareChampion(name) {
+        $('#champion').text(name);
+    }
+    </script>
   </head>
 
   <body>
@@ -89,13 +97,5 @@ $db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
             </div>
         </div>
     </main><!-- /.container -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-    function declareChampion(name) {
-        $('#champion').text(name);
-    }
-    </script>
   </body>
 </html>
