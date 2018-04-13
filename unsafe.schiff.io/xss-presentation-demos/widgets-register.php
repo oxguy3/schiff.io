@@ -108,7 +108,7 @@ if (isset($_POST['register'])) {
                         </div>
                         <div class="form-group col-md-4">
                             <label for="registerInputImageURL">Profile picture URL <small>(32x32 pixels)</small></label>
-                            <input type="url" name="imageUrl" class="form-control" id="registerInputImageURL" placeholder="https://i.imgur.com/R8IFHAB.jpg">
+                            <input type="text" name="imageUrl" class="form-control" id="registerInputImageURL" placeholder="https://i.imgur.com/R8IFHAB.jpg">
                         </div>
                     </div>
                     <button type="submit" name="register" class="btn btn-primary">Submit</button>
