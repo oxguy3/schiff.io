@@ -22,7 +22,7 @@ printHead('Help');
                 <pre><code>&lt;script&gt;alert('hello');&lt;/script&gt;</code></pre>
 
                 <h2>Image tag</h2>
-                <p>Perhaps you've got an image tag somewhere on the target page. Fun fact: If an <code>&lt;img&gt;</code> tag has an <code>onerror</code> attribute, the JavaScript code in that attribute will be run if the image fails to load. You can make sure an image <em>always</em> fails to load by giving it an invalid URL.</p>
+                <p>Perhaps you've got an image tag somewhere on the target page. Fun fact: An <code>&lt;img&gt;</code> tag can have an attribute called <code>onerror</code>, which contains JavaScript code that will run if the image fails to load. You can make sure an image <em>always</em> fails to load by giving it an invalid URL.</p>
                 <pre><code>&lt;img src="x" onerror="alert('hello')" /&gt;</code></pre>
 
                 <p>Alternatively, you can also set the URL of the image to a JavaScript function, although modern browsers increasingly block this (the version of Chrome I'm using right now doesn't allow this):</p>
