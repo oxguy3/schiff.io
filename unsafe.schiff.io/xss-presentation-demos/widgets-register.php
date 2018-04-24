@@ -1,5 +1,7 @@
 <?php
-$db = new PDO('sqlite:/var/www/sqlite/xss-demo.db');
+require_once('widgets-common.php');
+
+$db = getPDO();
 
 $insertId = false;
 
@@ -18,48 +20,8 @@ if (isset($_POST['register'])) {
     ]);
     $insertId = $db->lastInsertId();
 }
+printHead('Register your account');
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Widget Inc.: Register your account</title>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-    main.container {
-        margin-top: 80px;
-    }
-    .profile-pic {
-        background: #ccc 50% 50% no-repeat;
-        width: 256px;
-        height: 256px;
-    }
-    </style>
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Widgets Inc.</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="widgets-register.php">Register <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="widgets-user.php">User list</a>
-            </li>
-      </div>
-    </nav>
-
     <main role="main" class="container">
         <div class="row">
             <div class="col-12">
@@ -71,7 +33,7 @@ if (isset($_POST['register'])) {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="registerInputEmail">Email address*</label>
-                            <input type="email" name="email" class="form-control" id="registerInputEmail" placeholder="hjfarnsworth@planetexpress.co" required>
+                            <input type="email" name="text" class="form-control" id="registerInputEmail" placeholder="hjfarnsworth@planetexpress.co" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="registerInputPassword">Password*</label>
@@ -80,16 +42,16 @@ if (isset($_POST['register'])) {
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5">
-                            <label for="registerInputFirstName">First name*</label>
-                            <input type="text" name="nameFirst" class="form-control" id="registerInputFirstName" placeholder="Hubert" required>
+                            <label for="registerInputFirstName">First name</label>
+                            <input type="text" name="nameFirst" class="form-control" id="registerInputFirstName" placeholder="Hubert">
                         </div>
                         <div class="form-group col-md-2">
                             <label for="registerInputMiddleInitial">M.I.</label>
                             <input type="text" name="nameMiddle" class="form-control" id="registerInputMiddleInitial" placeholder="J">
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="registerInputLastName">Last name*</label>
-                            <input type="text" name="nameLast" class="form-control" id="registerInputLastName" placeholder="Farnsworth" required>
+                            <label for="registerInputLastName">Last name</label>
+                            <input type="text" name="nameLast" class="form-control" id="registerInputLastName" placeholder="Farnsworth">
                         </div>
                     </div>
                     <div class="form-row">
@@ -122,8 +84,5 @@ if (isset($_POST['register'])) {
             </div>
         </div>
     </main><!-- /.container -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+<?php
+printFoot();
