@@ -42,7 +42,7 @@ printHead('Registered users');
                         if ($mode == 'easy') {
                             $imageUrl = htmlspecialchars($row['imageUrl'], ENT_NOQUOTES | ENT_HTML401);
                         } else {
-                            $imageUrl = htmlspecialchars($row['imageUrl']);
+                            $imageUrl = htmlspecialchars($row['imageUrl'], ENT_QUOTES | ENT_HTML401);
                         }
                     }
                     print "<td><img height=\"32\" width=\"32\" src='".$imageUrl."'/></td>";
