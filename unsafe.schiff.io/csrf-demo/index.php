@@ -42,8 +42,8 @@ if (isset($_GET['transfer'])) {
     $transferSuccess = $transferSuccess && updateAccountBalance($user->id, $user->balance - $amount);
     $transferSuccess = $transferSuccess && updateAccountBalance($recipientId, $recipientBalance + $amount);
 
-    // update our user object since the balance is now out of date
-    $user = getCurrentUser();
+    header('Location: index.php?status='.$transferSuccess);
+    die();
 }
 
 printHead('Your Account');
@@ -59,9 +59,9 @@ printNavbar();
                 <p>Current balance: $<?php echo number_format($user->balance, 2); ?></p>
 
                 <h2 class="h3">Make a transfer</h2>
-                <?php if (isset($transferSuccess)) { ?>
-                    <div class="alert alert-<?php echo $transferSuccess ? "success" : "danger" ?>" role="alert">
-                        <?php echo $transferSuccess ? "Money successfully transferred!" : "Something went wrong with your transfer." ?>
+                <?php if (isset($_GET['status'])) { ?>
+                    <div class="alert alert-<?php echo ($_GET['status']=="1") ? "success" : "danger" ?>" role="alert">
+                        <?php echo ($_GET['status']=="1") ? "Money successfully transferred!" : "Something went wrong with your transfer." ?>
                     </div>
                 <?php } ?>
                 <form action="index.php" method="get" class="form-inline">
