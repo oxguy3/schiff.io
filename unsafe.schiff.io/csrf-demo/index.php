@@ -4,17 +4,17 @@ require_once('common.php');
 requireLoggedIn();
 $user = getCurrentUser();
 
-if (isset($_POST['transfer'])) {
+if (isset($_GET['transfer'])) {
     initializeDbObject();
 
     // retrieve and validate email address
-    $email = $_POST['email'];
+    $email = $_GET['email'];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("hey jerkface, that's not a real email address");
     }
 
     // retrieve and validate amount
-    $amount = $_POST['amount'];
+    $amount = $_GET['amount'];
     if (!is_numeric($amount)) {
         die("transfer amounts have to be numbers, ya dang goobus");
     }
@@ -64,7 +64,7 @@ printNavbar();
                         <?php echo $transferSuccess ? "Money successfully transferred!" : "Something went wrong with your transfer." ?>
                     </div>
                 <?php } ?>
-                <form action="index.php" method="post" class="form-inline">
+                <form action="index.php" method="get" class="form-inline">
                     <label class="sr-only" for="transferFormEmail">Email address</label>
                     <input type="email" class="form-control mb-2 mr-sm-2" id="transferFormEmail" name="email" placeholder="Email address">
 
