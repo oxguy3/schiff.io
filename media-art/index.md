@@ -6,5 +6,5 @@ This directory is for art assets related to video and other media, i.e. for use 
 
 ## Sports
 * [NCAA Men's Basketball](sports/ncaa-mens-basketball/)
-* [NFL](nfl/)
-* [U.S. soccer](us-soccer/) (MLS, USL, U.S. Open Cup)
+* [NFL](sports/nfl/)
+* [U.S. soccer](sports/us-soccer/) (MLS, USL, U.S. Open Cup)
