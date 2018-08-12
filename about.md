@@ -10,8 +10,7 @@ Hey there, I'm Hayden Schiff. I'm a twenty-something software developer from
 Cincinnati, Ohio. I'm really into pro soccer, anime, video games, and other
 time-wasting crap.
 
-If you're looking for my work experience, you can find my resume [here]({{ site.url }}/files/resume.pdf)
-(but it's a little out of date). I'm also on LinkedIn: {% include icon-linkedin.html username=site.linkedin_username %}
+If you're looking for my work experience, you can find my resume [here]({{ site.url }}/files/resume.pdf). I'm also on LinkedIn: {% include icon-linkedin.html username=site.linkedin_username %}
 
 ## Contact
 
