@@ -4,7 +4,7 @@ title: "XSS presentation"
 
 **Cross-site scripting: What it is and how we got here**
 
-Presentation video coming soon.
+[Watch the presentation on YouTube.](https://youtu.be/0N2djP0pkjw?t=31m40s)
 
 [View the slides.](https://docs.google.com/presentation/d/1qqFnLR2FjigGJbtTLUssP2DiVLTQh-pGawPf2bJ6lwI/edit?usp=sharing)
 
