@@ -20,16 +20,30 @@ description: >
   Software developer. Soccer and anime meganerd. Cincinnati native. He/him.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.schiff.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username:  oxguy3
-github_username:   oxguy3
-linkedin_username: haydenschiff
+
+# social usernames
+bitbucket_username:   oxguy3
+facebook_username:    haydenschiff
+flickr_username:      oxguy3
+github_username:      oxguy3
+hackernews_username:  oxguy3
+linkedin_username:    haydenschiff
+myanimelist_username: oxguy3
+reddit_username:      oxguy3
+snapchat_username:    oxguy3
+stackoverflow_userid: 992504
+steam_username:       oxguy3
+twitch_username:      itsoxguy3
+twitter_username:     haydenschiff
+wikipedia_username:   IagoQnsi
+
 # disqus:
 #     shortname: hayden-schiff
 
 # seo
 google_analytics: UA-53424623-1
 twitter:
-    username: oxguy3
+    username: haydenschiff
 logo: /assets/face500.jpg
 google_site_verification: em_CCqIepc-mKuqUKymAjcPxp_48PsmDTLc1hbORMaw
 lang: en_US
