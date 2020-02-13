@@ -4,6 +4,7 @@ permalink: /projects/
 ---
 Here are some things I've worked on:
 
+* **[xwTweaks]({{ site.url }}/projects/xwtweaks)**: A browser extension implements quality-of-life improvements for New York Times crosswords and puzzles on nytimes.com.
 * **[CoeBot.tv](https://www.coebot.tv)**: A website interface for CoeBot, a bot that moderates chat channels on the popular livestreaming service Twitch. ([GitHub](https://github.com/oxguy3/coebot-www))
 * **[Jimbox](https://github.com/oxguy3/jimbox)**: A simple file organization app I built for my English professor dad, who is currently organizing hundreds/thousands of letters written by John Updike. ([more info](https://www.updikeletters.com/))
 * **[ImLiveYo](https://github.com/oxguy3/ImLiveYo)**: A replacement for the email notifications on livestreaming service Twitch which sends a [Yo](http://justyo.co/) whenever any channel a user follows goes live. Made at [DandyHacks](http://rochack.org/dandyhacks/hackathon.html) 2015.
