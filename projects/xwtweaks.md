@@ -12,8 +12,8 @@ xwTweaks is freely available under the MIT License. You can find the source code
 
 ## Features
 * Keyboard shortcuts for crosswords/acrostics
-    * Hold <kbd>Shift</kbd> for pencil mode
-    * Press grave (<kbd>\`</kbd>) to pause
+    * Hold `Shift` for pencil mode
+    * Press grave/backtick (`` ` ``) to pause
 * Adds links to all puzzles in the navbar for easy access
 * Spelling Bee: Letter shading to assist with pangrams
 * SET: Clearer distinction selected vs. unselected tiles when hovering
