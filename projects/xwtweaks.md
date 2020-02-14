@@ -2,7 +2,7 @@
 title: xwTweaks
 permalink: /projects/xwtweaks
 ---
-<img src="{{ site.url }}/assets/xwtweaks.svg" style="float:right; height:256px; width:256px;" />
+<img src="{{ site.url }}/assets/xwtweaks.svg" style="float:right; height:144px; width:144px; margin:16px;" />
 
 xwTweaks is a browser extension that implements quality-of-life improvements for New York Times crosswords and puzzles on nytimes.com
 
