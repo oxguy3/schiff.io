@@ -4,7 +4,12 @@ My personal website -- accessible at [schiff.io](https://www.schiff.io).
 
 ## Building
 
-I'm not sure why you'd want to, but you can easily build this site on your local machine. You'll need Ruby (2.4 or greater) installed already, but everything else will install itself. Here's the script I use to build it on my web server:
+I'm not sure why you'd want to, but you can easily build this site on your local machine. Here are the dependencies:
+* Ruby, including dev files and Rubygems (2.4 or greater) (`apt install ruby ruby-dev`)
+* gcc, make, git (`apt install gcc make git`)
+* Bundler (`gem install bundler`)
+
+Everything else will install itself when you run `bundle install`. Here's the script I use to build it on my web server:
 
 ```
 #!/usr/bin/env bash
