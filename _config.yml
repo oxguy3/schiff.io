@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Hayden Schiff
 author: Hayden Schiff
-email: haydenschiff@gmail.com
+email: hayden@schiff.io
 description: >
   Software developer. Soccer and anime meganerd. Cincinnati native. He/him.
 baseurl: "" # the subpath of your site, e.g. /blog
