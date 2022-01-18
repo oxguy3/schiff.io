@@ -4,15 +4,24 @@ permalink: /projects/
 ---
 Here are some things I've worked on:
 
-* **[SportsArchive](https://www.sportsarchive.net/)**: A website for archiving sports-related materials such as media guides, game notes, headshots, and more. ([GitHub](https://github.com/oxguy3/sportsarchive))
-* **[Winston's World](https://haydenschiff.itch.io/winstons-world)**: A browser-based 2D platforming game. ([GitHub](https://github.com/oxguy3/winstons-world))
-* **[CoeBot.tv](https://www.coebot.tv)**: A website interface for CoeBot, a bot that moderates chat channels on the popular livestreaming service Twitch. ([GitHub](https://github.com/oxguy3/coebot-www))
-* **[Jimbox](https://github.com/oxguy3/jimbox)**: A simple file organization app I built for my English professor dad, who is currently organizing hundreds/thousands of letters written by John Updike. ([more info](https://www.updikeletters.com/))
-* **[ImLiveYo](https://github.com/oxguy3/ImLiveYo)**: A replacement for the email notifications on livestreaming service Twitch which sends a [Yo](http://justyo.co/) whenever any channel a user follows goes live. Made at [DandyHacks](http://rochack.org/dandyhacks/hackathon.html) 2015.
-* **[Steamblr](https://www.tumblr.com/theme/37486)**: A highly customizable theme for Tumblr blogs, designed to look and feel much like the website for the popular gaming platform Steam. ([GitHub](https://github.com/oxguy3/steamblr), [demo](http://steamblrdemo.tumblr.com/))
-* **[phpStageManager](https://github.com/oxguy3/phpStageManager)**: A web-based organization tool for theatre productions. This was my first project using PHP.
-* **[CraftBoot](https://github.com/oxguy3/craftboot)**: A bootstrapper for [SKCraft Launcher](https://github.com/skcraft/launcher) that makes the powerful Minecraft modpack launcher more accessible to server owners.
-* **[CoolStoryBro](http://dev.bukkit.org/bukkit-plugins/coolstorybro/)**: A plugin for Bukkit (Minecraft servers) that can assign random nicknames from a list (the default list consists of about two hundred "bro names", i.e. Edgar Allan Broe, Stephen Brolbert, etc).
+* **[SportsArchive](https://www.sportsarchive.net/)** ([GitHub](https://github.com/oxguy3/sportsarchive))
+    * SportsArchive is a website I created to archive old documents and headshots related to professional sports. As a big fan of FC Cincinnati, I noticed that old Major League Soccer documents from just a few years ago would often be impossible to find, and I wanted to help prevent the loss of history. I planned out and designed the website, then coded it from scratch using Symfony and PHP. I also gathered and organized all the content on the site.
+* **[Winston's World](https://haydenschiff.itch.io/winstons-world)** ([GitHub](https://github.com/oxguy3/winstons-world))
+    * Winston's World is a 2D platformer video game that you can play in your web browser. I was part of a team of four that built the game for the DMC 1000 course (Foundations of Digital Media) at UC in fall of 2019. As the only coder on the team, I did all the programming, building the game from the ground up in JavaScript using the Phaser engine. I also wrote a comprehensive wiki for my teammates to help them contribute to the game.
+* **[CoeBot.tv](https://www.coebot.tv)** ([GitHub](https://github.com/oxguy3/coebot-www))
+    * CoeBot is an open-source auto-moderation chatbot for the livestreaming website Twitch.tv, used in over 4,000 channels at its peak. It assists livestreamers by providing commands, automatic responses, external service integrations, and much more for their chat room. I built the bot's original website, which allowed the bot's complex configuration to be easily viewed and edited.
+* **[Jimbox](https://github.com/oxguy3/jimbox)** ([more info](https://www.updikeletters.com/))
+    * A simple file organization app I built for my English professor dad to help him organize hundreds/thousands of letters written by John Updike for an upcoming book.
+* **[ImLiveYo](https://github.com/oxguy3/ImLiveYo)**
+    * A replacement for the email notifications on livestreaming service Twitch.tv which sends a [Yo](https://en.wikipedia.org/wiki/Yo_%28app%29) whenever any channel a user follows goes live. Made using Node.js at DandyHacks 2015 (University of Rochester's annual hackathon).
+* **[Steamblr](https://www.tumblr.com/theme/37486)** ([GitHub](https://github.com/oxguy3/steamblr), [demo](http://steamblrdemo.tumblr.com/))
+    * A highly customizable theme for Tumblr blogs, designed to look and feel much like the website for the popular gaming platform Steam.
+* **[phpStageManager](https://github.com/oxguy3/phpStageManager)**
+    * In high school, I worked on the school plays as a stage manager. We were managing our rehearsal schedule using an online calendar system provided by the school, but it was clunky, inflexible, and often didn't work. I also noticed that it took a lot of work for each actor to figure out which rehearsals they were called for. I built phpStageManager, an easy-to-use calendar web app which allowed actors to view a personalized schedule with one click. It was my first project using PHP and its messy codebase certainly shows my inexperience at the time, but it served its purpose well and was a great early learning experience for me.
+* **[CraftBoot](https://github.com/oxguy3/craftboot)**
+    * A bootstrapper for [SKCraft Launcher](https://github.com/skcraft/launcher) that makes the powerful Minecraft modpack launcher more accessible to server owners.
+* **[CoolStoryBro](http://dev.bukkit.org/bukkit-plugins/coolstorybro/)**
+    * A plugin for Bukkit (Minecraft servers) that can assign random nicknames from a list (the default list consists of about two hundred "bro names", i.e. Edgar Allan Broe, Stephen Brolbert, etc).
 
 ## Little things
 
